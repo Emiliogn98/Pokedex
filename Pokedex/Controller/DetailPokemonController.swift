@@ -34,7 +34,7 @@ class DetailPokemonController: UIViewController {
     }
     
     func updateUI(){
-        PokemonViewModel.PokemonImage(namePokemon: self.pokemonName ) { result, error in
+        PokemonViewModel.GetByName(namePokemon: self.pokemonName ) { result, error in
             DispatchQueue.main.async{
                 if result.self != nil {
                     for objPokemon in result!.self.sprites{

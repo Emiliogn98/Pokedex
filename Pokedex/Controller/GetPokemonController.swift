@@ -13,6 +13,7 @@ class GetPokemonController: UIViewController {
     var pokemonName : String = ""
     var text : String = ""
     var url : String = ""
+    var elemento : String = ""
     var id : String = ""
     var color = UIColor.red.cgColor
     var color2 = UIColor.white.cgColor
@@ -42,6 +43,8 @@ class GetPokemonController: UIViewController {
     
     @IBAction func btnBuscar(_ sender: UIButton) {
         self.pokemonName = txtBuscar.text!
+        self.elemento = txtBuscar.text!
+        self.id = txtBuscar.text!
                       guard txtBuscar.text != "" else{
                                  
                           txtBuscar.layer.borderColor = color
@@ -51,17 +54,23 @@ class GetPokemonController: UIViewController {
                       txtBuscar.layer.borderColor = color2
                       txtBuscar.layer.borderWidth = 1.0
                    
-        PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
-            DispatchQueue.main.async{
-                if result.self != nil {
-                    for objPokemon in result!.self.sprites{
-                        var poke = objPokemon as! Pokemon
-                        self.pokemonInfo.append(poke)
-                       
+        if txtBuscar.text != "" {
+            PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
+                DispatchQueue.main.async{
+                    if result.self != nil {
+                        for objPokemon in result!.self.sprites{
+                            var poke = objPokemon as! Pokemon
+                            self.pokemonInfo.append(poke)
+                           
+                        }
                     }
                 }
             }
+        } else {
+            
+            
         }
+       
         
     }
     
