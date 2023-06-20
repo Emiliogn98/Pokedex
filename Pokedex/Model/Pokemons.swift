@@ -7,6 +7,11 @@
 
 import Foundation
 
+//struct Pokemon: Codable {
+//
+//    var pokemons: [Pokemons]? = []
+//}
+
 struct Pokemons: Codable {
 
   var count    : Int?       = nil

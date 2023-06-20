@@ -1,16 +1,21 @@
 //
 //  GetPokemonController.swift
+//
 //  Pokedex
 //
 //  Created by Emilio García Navarrete on 19/06/23.
-//
 
 import UIKit
 
 class GetPokemonController: UIViewController {
-    var pokemons : [Pokemons] = []
+    var pokemonsList : [Results] = []
+    var pokemonImagen : [Pokemon] = []
+    var pokemonName : String = ""
+    var text : String = ""
+    var maxLenght = 2
     
     //Outlet
+    
 
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -23,22 +28,36 @@ class GetPokemonController: UIViewController {
     }
     //Action
     func updateUI(){
-//        PokemonViewModel.GetCategoria { result, error in
-//            DispatchQueue.main.async {
-//                if result!.count != nil {
-//                    for objPokemon in result!.results!{
-//                        self.pokemons.append(objPokemon)
+        collectionView.reloadData()
+        PokemonViewModel.GetPokemon { result, error in
+            DispatchQueue.main.async {
+            if result!.self != nil {
+                   
+                for objPokemon in result.self!.results!{
+                        self.pokemonsList.append(objPokemon)
+                       //self.pokemons
+                        //print(self.pokemonsList)
+                    }
+               
+                self.collectionView.reloadData()
+                }
+            }
+        }
+    }
+//    func GetImage(){
+//        PokemonViewModel.PokemonImage(namePokemon: self.pokemonName ) { result, error in
+//            DispatchQueue.main.async{
+//                if result.self != nil {
+//                    for objPokemon in result!.self.sprites{
+//                        let poke = objPokemon as! Pokemon
+//                        self.pokemonImagen.append(poke)
 //                    }
-//                    self.collectionView.reloadData()
 //                }
 //            }
 //        }
-    }
+//
+//    }
     
-    
-    
-
-  
 
 }
 
@@ -49,28 +68,40 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
                
-//        let imageURLString = pokemons[indexPath.row].strDrinkThumb
-//        UIImage.loadImageFromURL(imageURLString!) { (image) in
-//        if let image = image {
-//        // La imagen se cargó exitosamente desde la URL
-//            cell.imageView.image = image
-//        } else {
-//            print("error al cargar la imagen")
-//        }
-//        }
-                //cell.imageView.image = ""
-        cell.lblNombre.text = pokemons[indexPath.row].results?.description
-        cell.lblText.text = String(pokemons[indexPath.row].count!)
-               // print(self.categoria)
-         
+       
+        cell.lblNombre.text = pokemonsList[indexPath.row].name
+        self.pokemonName = pokemonsList[indexPath.row].name!
+        cell.lblText.text = pokemonsList[indexPath.row].url
+        self.text = pokemonsList[indexPath.row].url!
+        
+        
+        var extratedSuffix = self.text.suffix(self.maxLenght)
+        
+        
+        
+     
+        
+               
+        let imageURLString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(extratedSuffix).png"
+  //      let imageURLString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+        UIImage.loadImageFromURL(imageURLString) { (image) in
+        if let image = image {
+        // La imagen se cargó exitosamente desde la URL
+            cell.imagenView.image = image
+            print(image)
+            print("la imagen se cargo correcramente")
+        } else {
+            print("error al cargar la imagen")
+        }
+        }
      
          
          return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //return self.categoria.count
-        return 1
+  
+        return self.pokemonsList.count
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
