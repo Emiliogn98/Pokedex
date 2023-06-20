@@ -11,7 +11,7 @@ struct Pokemon : Codable {
     //var sprites : Sprites? = Sprites()
     var sprites : [Sprites] = []
     var name : String? = nil
-    let order : Int? = nil
+    var order : Int? = nil
 }
 struct Sprites : Codable {
     let back_default : String? = nil

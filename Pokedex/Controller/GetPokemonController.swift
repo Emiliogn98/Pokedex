@@ -12,7 +12,8 @@ class GetPokemonController: UIViewController {
     var pokemonImagen : [Pokemon] = []
     var pokemonName : String = ""
     var text : String = ""
-    var maxLenght = 2
+ 
+    
     
     //Outlet
     
@@ -25,6 +26,10 @@ class GetPokemonController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         updateUI()
+       
+     //   GetImage()
+      
+       
     }
     //Action
     func updateUI(){
@@ -35,28 +40,29 @@ class GetPokemonController: UIViewController {
                    
                 for objPokemon in result.self!.results!{
                         self.pokemonsList.append(objPokemon)
-                       //self.pokemons
-                        //print(self.pokemonsList)
+                    
                     }
-               
                 self.collectionView.reloadData()
+               // print(self.pokemonName)
                 }
+                
             }
         }
     }
-//    func GetImage(){
-//        PokemonViewModel.PokemonImage(namePokemon: self.pokemonName ) { result, error in
-//            DispatchQueue.main.async{
-//                if result.self != nil {
-//                    for objPokemon in result!.self.sprites{
-//                        let poke = objPokemon as! Pokemon
-//                        self.pokemonImagen.append(poke)
-//                    }
-//                }
-//            }
-//        }
-//
-//    }
+    func GetImage(){
+        PokemonViewModel.PokemonImage(namePokemon: self.pokemonName ) { result, error in
+            DispatchQueue.main.async{
+                if result.self != nil {
+                    for objPokemon in result!.self.sprites{
+                        var poke = objPokemon as! Pokemon
+                        self.pokemonImagen.append(poke)
+                       
+                    }
+                }
+            }
+        }
+
+    }
     
 
 }
@@ -74,22 +80,16 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
         cell.lblText.text = pokemonsList[indexPath.row].url
         self.text = pokemonsList[indexPath.row].url!
         
-        
-        var extratedSuffix = self.text.suffix(self.maxLenght)
-        
-        
-        
-     
-        
-               
-        let imageURLString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(extratedSuffix).png"
-  //      let imageURLString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+        let textId = self.text.split(separator: "/")
+        print(textId.last!)
+        let imageURLString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(textId.last!).png"
         UIImage.loadImageFromURL(imageURLString) { (image) in
         if let image = image {
         // La imagen se cargó exitosamente desde la URL
             cell.imagenView.image = image
-            print(image)
+          //  print(image)
             print("la imagen se cargo correcramente")
+            
         } else {
             print("error al cargar la imagen")
         }
@@ -108,8 +108,8 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-      //  self.IdCoctel = Int(self.categoria[indexPath.row].idDrink!)!
-       // self.performSegue(withIdentifier: "DrinkDetailSegue", sender: self)
+        self.pokemonName = self.pokemonsList[indexPath.row].name!
+        self.performSegue(withIdentifier: "PokemonDetailSegue", sender: self)
         
     }
   
