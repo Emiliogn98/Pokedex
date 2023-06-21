@@ -52,6 +52,7 @@ class GetPokemonController: UIViewController {
                                  
                           txtBuscar.layer.borderColor = color
                           txtBuscar.layer.borderWidth = 1.0
+                          updateUI()
                                  return
                              }
                       txtBuscar.layer.borderColor = color2
@@ -59,18 +60,23 @@ class GetPokemonController: UIViewController {
                    
         if txtBuscar.text != "" {
             PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
+                self.pokemonsList.removeAll()
                 DispatchQueue.main.async{
                     if result != nil {
-//                        for objPokemon in result!.sprites{
-//                            var poke = objPokemon as! Pokemon
-//                            self.pokemonInfo.append(poke)
-//
-//                        }
+                        
+                        
+                        //self.pokemonsList[0].name = result?.name
+                        var objpoke = Results()
+                        objpoke.name = result?.name
+                        objpoke.url = result?.sprites?.front_shiny
+                        self.pokemonsList.append(objpoke)
+                        self.collectionView.reloadData()
+
                     }
                 }
             }
         } else {
-            
+          
             
         }
         
