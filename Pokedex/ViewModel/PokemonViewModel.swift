@@ -8,9 +8,9 @@
 import Foundation
 class PokemonViewModel {
   
-      static func GetPokemon (responseResult : @escaping(Pokemons?,Error?) -> Void) {
+    static func GetPokemon (paginacion: String,responseResult : @escaping(Pokemons?,Error?) -> Void) {
           
-          let url = URL(string: "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20")!
+          let url = URL(string: "\(paginacion)")!
           URLSession.shared.dataTask(with: url) { data, response, error in
               guard let httpResponse = response as? HTTPURLResponse,
                     httpResponse.statusCode == 200

@@ -14,6 +14,7 @@ class GetPokemonController: UIViewController {
     var text : String = ""
     var url : String = ""
     var elemento : String = ""
+    var paginacion : String = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
     var id : String = ""
     var color = UIColor.red.cgColor
     var color2 = UIColor.white.cgColor
@@ -70,11 +71,14 @@ class GetPokemonController: UIViewController {
             
             
         }
+        
        
         
     }
     
     @IBAction func btnSiguiente(_ sender: UIButton) {
+        //paginacion = pokemonsList
+        updateUI()
         
     }
     
@@ -86,7 +90,7 @@ class GetPokemonController: UIViewController {
     }
     func updateUI(){
         collectionView.reloadData()
-        PokemonViewModel.GetPokemon { result, error in
+        PokemonViewModel.GetPokemon(paginacion: self.paginacion) { result, error in
             DispatchQueue.main.async {
             if result!.self != nil {
                    
@@ -118,6 +122,7 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
         let imageURLString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(textId.last!).png"
         self.url = imageURLString
      
+        
         
         UIImage.loadImageFromURL(imageURLString) { (image) in
         if let image = image {
