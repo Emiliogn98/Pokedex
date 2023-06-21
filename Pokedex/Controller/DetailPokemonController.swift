@@ -13,6 +13,9 @@ class DetailPokemonController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     
+    @IBOutlet weak var ColorFondo: UIStackView!
+    
+    
     @IBOutlet weak var stackViewInfo: UIStackView!
     
     @IBOutlet weak var lblTypes: UILabel!
@@ -46,6 +49,8 @@ class DetailPokemonController: UIViewController {
         
         stackViewInfo.layer.cornerRadius = 10
         stackViewInfo.layer.masksToBounds = true
+        ColorFondo.layer.cornerRadius = 20
+        ColorFondo.layer.masksToBounds = true
        
         
         
@@ -115,7 +120,7 @@ class DetailPokemonController: UIViewController {
                         self.lblTypes.text = "elemento: \(self.pokemonTypes[0].type!.name!)"
                         if let color = colors[self.pokemonTypes[0].type!.name!]{
                             DispatchQueue.main.async {
-                                self.view.backgroundColor = color
+                                self.ColorFondo.backgroundColor = color
                             }
                         }
                         
