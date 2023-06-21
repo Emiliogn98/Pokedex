@@ -35,6 +35,8 @@ class DetailPokemonController: UIViewController {
     var pokemon : [Pokemon] = []
     var pokemonStats : [Stats] = []
     var pokemonTypes : [Types] = []
+    let colors: [String: UIColor] = ["normal": UIColor.systemPink, "water": UIColor .blue,"fire": UIColor.red,
+                                     "grass": UIColor.green]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,7 @@ class DetailPokemonController: UIViewController {
         
         stackViewInfo.layer.cornerRadius = 10
         stackViewInfo.layer.masksToBounds = true
+       
         
         
     }
@@ -94,7 +97,7 @@ class DetailPokemonController: UIViewController {
                     //                        }
                     // Info error indexpath
                     let imageURLString = "\(result!.sprites!.front_default!)"
-                    UIImage.loadImageFromURL(imageURLString) { (image) in
+                    UIImage.loadImageFromURL(imageURLString) { [self] (image) in
                         if let image = image {
                             // La imagen se cargó exitosamente desde la URL
                             self.imageView.image = image
@@ -110,6 +113,11 @@ class DetailPokemonController: UIViewController {
                         self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                         self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                         self.lblTypes.text = "elemento: \(self.pokemonTypes[0].type!.name!)"
+                        if let color = colors[self.pokemonTypes[0].type!.name!]{
+                            DispatchQueue.main.async {
+                                self.view.backgroundColor = color
+                            }
+                        }
                         
                         
                     }
