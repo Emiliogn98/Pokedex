@@ -15,6 +15,7 @@ struct Pokemon : Codable {
     var order: Int? = nil
     var sprites : Sprites? = Sprites()
     var stats : [Stats]? = []
+    //var stats : Stats?
     var weight : Int? = nil
     var types : [Types]? = []
     
