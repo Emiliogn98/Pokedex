@@ -13,6 +13,7 @@ class GetPokemonController: UIViewController {
     var pokemonName : String = ""
     var text : String = ""
     var url : String = ""
+    
     var elemento : String = ""
     var paginacion : String = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20"
     var nextPaginacion : String = ""
@@ -57,8 +58,28 @@ class GetPokemonController: UIViewController {
                              }
                       txtBuscar.layer.borderColor = color2
                       txtBuscar.layer.borderWidth = 1.0
+        
                    
         if txtBuscar.text != "" {
+            PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
+                self.pokemonsList.removeAll()
+                DispatchQueue.main.async{
+                    if result != nil {
+                        
+                        
+                        //self.pokemonsList[0].name = result?.name
+                        var objpoke = Results()
+                        objpoke.name = result?.name
+                        self.id = String(result!.id!)
+                        var url1 : String = "https://pokeapi.co/api/v2/pokemon/\(self.id)"
+                        objpoke.url = url1
+                        self.pokemonsList.append(objpoke)
+                        self.collectionView.reloadData()
+
+                    }
+                }
+            }
+        } else {
             PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
                 self.pokemonsList.removeAll()
                 DispatchQueue.main.async{
@@ -75,7 +96,6 @@ class GetPokemonController: UIViewController {
                     }
                 }
             }
-        } else {
           
             
         }
