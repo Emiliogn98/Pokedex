@@ -126,8 +126,10 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
-               
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
        
+        
         self.text = pokemonsList[indexPath.row].url!
         
         let textId = self.text.split(separator: "/")
