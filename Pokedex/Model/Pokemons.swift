@@ -7,23 +7,19 @@
 
 import Foundation
 
-//struct Pokemon: Codable {
-//
-//    var pokemons: [Pokemons]? = []
-//}
+struct PokemonPaginacion : Codable {
+    var pokemons : [Pokemons]
+}
 
 struct Pokemons: Codable {
 
-  var count    : Int?       = nil
-  var next     : String?    = nil
-  var previous : String?    = nil
-  var results  : [Results]? = []
+  var count    : Int
+  var next     : String?
+  var previous : String?    
+  var results  : [Results]
 
 
-  init() {
-
-  }
-
+ 
 }
 
 struct Results: Codable {

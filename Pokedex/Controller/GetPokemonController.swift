@@ -14,7 +14,9 @@ class GetPokemonController: UIViewController {
     var text : String = ""
     var url : String = ""
     var elemento : String = ""
-    var paginacion : String = "https://pokeapi.co/api/v2/pokemon/?offset=20&limit=20"
+    var paginacion : String = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20"
+    var nextPaginacion : String = ""
+    var previusPaginacion : String = ""
     var id : String = ""
     var color = UIColor.red.cgColor
     var color2 = UIColor.white.cgColor
@@ -77,24 +79,34 @@ class GetPokemonController: UIViewController {
     }
     
     @IBAction func btnSiguiente(_ sender: UIButton) {
-        //paginacion = pokemonsList
+        self.paginacion = self.nextPaginacion
+        print(self.paginacion)
         updateUI()
         
     }
     
     
     @IBAction func btnAnterior(_ sender: UIButton) {
+        self.paginacion = self.previusPaginacion
+        print(self.paginacion)
+        updateUI()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
        // updateUI()
     }
     func updateUI(){
+       
         collectionView.reloadData()
         PokemonViewModel.GetPokemon(paginacion: self.paginacion) { result, error in
             DispatchQueue.main.async {
-            if result!.self != nil {
-                   
-                for objPokemon in result.self!.results!{
+                if result! != nil {
+                    self.previusPaginacion = result?.previous ?? "no hay"
+                    self.nextPaginacion = result!.next!
+                    for objPokemon in result!.results {
+                      
+                      
+                      
                         self.pokemonsList.append(objPokemon)
                     
                     }
@@ -117,6 +129,7 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
                
        
         self.text = pokemonsList[indexPath.row].url!
+        
         let textId = self.text.split(separator: "/")
        // print(textId.last!)
         let imageURLString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(textId.last!).png"
@@ -135,6 +148,7 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
             print("error al cargar la imagen")
         }
         }
+        pokemonsList[indexPath.row].url
         cell.lblNombre.text = "#\(textId.last!) \(pokemonsList[indexPath.row].name!)"
         self.pokemonName = pokemonsList[indexPath.row].name!
 //        cell.lblText.isHidden = true
@@ -158,7 +172,7 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        self.pokemonName = self.pokemonsList[indexPath.row].name!
+    //    self.pokemonName = self.pokemonsList[indexPath.row].name!
         self.performSegue(withIdentifier: "PokemonDetailSegue", sender: self)
         
     }
