@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j4t-ju-SwG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -171,34 +171,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="S04-TV-G3e">
-                                <rect key="frame" x="61" y="353" width="254" height="265"/>
+                                <rect key="frame" x="61" y="353" width="254" height="165"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9x-tq-foQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="254" height="53"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZJ-mL-DYr">
-                                        <rect key="frame" x="0.0" y="53" width="254" height="53"/>
+                                        <rect key="frame" x="0.0" y="33" width="254" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cpq-kh-ZCJ">
-                                        <rect key="frame" x="0.0" y="106" width="254" height="53"/>
+                                        <rect key="frame" x="0.0" y="66" width="254" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kQO-b7-U3i">
-                                        <rect key="frame" x="0.0" y="159" width="254" height="53"/>
+                                        <rect key="frame" x="0.0" y="99" width="254" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGz-j7-LfA">
-                                        <rect key="frame" x="0.0" y="212" width="254" height="53"/>
+                                        <rect key="frame" x="0.0" y="132" width="254" height="33"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -239,7 +239,7 @@
                             <constraint firstItem="S04-TV-G3e" firstAttribute="top" secondItem="hBY-95-5mW" secondAttribute="bottom" constant="2" id="Sgz-yt-n44"/>
                             <constraint firstItem="S04-TV-G3e" firstAttribute="leading" secondItem="2hn-l0-5v8" secondAttribute="leading" constant="61" id="Ubx-ft-SJe"/>
                             <constraint firstItem="hBY-95-5mW" firstAttribute="leading" secondItem="2hn-l0-5v8" secondAttribute="leading" constant="30" id="cqw-vI-TfN"/>
-                            <constraint firstItem="2hn-l0-5v8" firstAttribute="bottom" secondItem="S04-TV-G3e" secondAttribute="bottom" constant="200" id="gm0-a0-85m"/>
+                            <constraint firstItem="2hn-l0-5v8" firstAttribute="bottom" secondItem="S04-TV-G3e" secondAttribute="bottom" constant="300" id="gm0-a0-85m"/>
                             <constraint firstItem="G7J-Vc-6pu" firstAttribute="top" secondItem="2hn-l0-5v8" secondAttribute="top" constant="24" id="pgI-fi-rl1"/>
                         </constraints>
                     </view>
