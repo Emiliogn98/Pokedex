@@ -200,7 +200,7 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-    //    self.pokemonName = self.pokemonsList[indexPath.row].name!
+        self.pokemonName = self.pokemonsList[indexPath.row].name!
         self.performSegue(withIdentifier: "PokemonDetailSegue", sender: self)
         
     }

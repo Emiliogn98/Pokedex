@@ -32,6 +32,16 @@ class DetailPokemonController: UIViewController {
     
     @IBOutlet weak var lblStats3: UILabel!
     
+    
+    @IBOutlet weak var imageHeart: UIImageView!
+    
+    @IBOutlet weak var imageDefense: UIImageView!
+    
+    @IBOutlet weak var imageType: UIImageView!
+    
+    @IBOutlet weak var imageSword: UIImageView!
+    
+    
     var pokemonName : String = ""
     var url : String = ""
     var id : String = ""
