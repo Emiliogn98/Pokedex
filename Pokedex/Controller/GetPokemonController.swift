@@ -60,12 +60,12 @@ class GetPokemonController: UIViewController {
         if txtBuscar.text != "" {
             PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
                 DispatchQueue.main.async{
-                    if result.self != nil {
-                        for objPokemon in result!.self.sprites{
-                            var poke = objPokemon as! Pokemon
-                            self.pokemonInfo.append(poke)
-                           
-                        }
+                    if result != nil {
+//                        for objPokemon in result!.sprites{
+//                            var poke = objPokemon as! Pokemon
+//                            self.pokemonInfo.append(poke)
+//
+//                        }
                     }
                 }
             }
@@ -80,7 +80,7 @@ class GetPokemonController: UIViewController {
     
     @IBAction func btnSiguiente(_ sender: UIButton) {
         self.paginacion = self.nextPaginacion
-        print(self.paginacion)
+       // print(self.paginacion)
         updateUI()
         
     }
@@ -88,7 +88,7 @@ class GetPokemonController: UIViewController {
     
     @IBAction func btnAnterior(_ sender: UIButton) {
         self.paginacion = self.previusPaginacion
-        print(self.paginacion)
+      //  print(self.paginacion)
         updateUI()
         
     }
@@ -96,7 +96,7 @@ class GetPokemonController: UIViewController {
        // updateUI()
     }
     func updateUI(){
-       
+        self.pokemonsList.removeAll()
         collectionView.reloadData()
         PokemonViewModel.GetPokemon(paginacion: self.paginacion) { result, error in
             DispatchQueue.main.async {
