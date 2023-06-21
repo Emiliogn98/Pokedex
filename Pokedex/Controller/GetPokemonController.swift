@@ -80,7 +80,7 @@ class GetPokemonController: UIViewController {
                 }
             }
         } else {
-            PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
+            PokemonViewModel.GetById(id: self.id) { result, error in
                 self.pokemonsList.removeAll()
                 DispatchQueue.main.async{
                     if result != nil {
