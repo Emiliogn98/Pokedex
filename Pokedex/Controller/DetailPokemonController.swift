@@ -13,6 +13,11 @@ class DetailPokemonController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     
+    @IBOutlet weak var stackViewInfo: UIStackView!
+    
+    @IBOutlet weak var lblTypes: UILabel!
+    
+    
     @IBOutlet weak var lblNombre: UILabel!
     
     
@@ -29,6 +34,7 @@ class DetailPokemonController: UIViewController {
     var id : String = ""
     var pokemon : [Pokemon] = []
     var pokemonStats : [Stats] = []
+    var pokemonTypes : [Types] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +42,8 @@ class DetailPokemonController: UIViewController {
         updateUI()
         
         
-        
+        stackViewInfo.layer.cornerRadius = 10
+        stackViewInfo.layer.masksToBounds = true
         
         
     }
@@ -61,6 +68,12 @@ class DetailPokemonController: UIViewController {
                         let pokeStat = objPoke as Stats
                         self.pokemonStats.append(pokeStat)
                     }
+                    
+                    for objPoke in result!.types!{
+                        let pokeType = objPoke as! Types
+                        self.pokemonTypes.append(pokeType)
+                    }
+                    
                     //info
                     
                     //                    self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) \(self.pokemonStats[0].base_stat)"
@@ -92,10 +105,11 @@ class DetailPokemonController: UIViewController {
                             print("error al cargar la imagen")
                         }
                         self.lblNombre.text = result?.name
-                        self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) \(self.pokemonStats[0].base_stat!)"
-                        self.lblStats1.text = "\(self.pokemonStats[1].stat!.name!) \(self.pokemonStats[0].base_stat!)"
-                        self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) \(self.pokemonStats[0].base_stat!)"
-                        self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) \(self.pokemonStats[0].base_stat!)"
+                        self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                        self.lblStats1.text = "\(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                        self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                        self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                        self.lblTypes.text = "elemento: \(self.pokemonTypes[0].type!.name!)"
                         
                         
                     }
