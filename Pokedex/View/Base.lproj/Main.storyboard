@@ -225,11 +225,11 @@
                     <navigationItem key="navigationItem" id="Dow-B9-zVy"/>
                     <connections>
                         <outlet property="imageView" destination="oPS-t6-H2D" id="efg-hb-EIV"/>
-                        <outlet property="lblId" destination="tZJ-mL-DYr" id="Rsh-Q3-p6o"/>
-                        <outlet property="lblImagenFrontal" destination="Cpq-kh-ZCJ" id="2Ep-uc-jF1"/>
-                        <outlet property="lblImagenShiny" destination="kQO-b7-U3i" id="3pN-Bs-X8h"/>
                         <outlet property="lblNombre" destination="ddl-jH-ViO" id="p8d-zw-ZtS"/>
                         <outlet property="lblStats" destination="U9x-tq-foQ" id="Cv1-qf-Gyh"/>
+                        <outlet property="lblStats1" destination="kQO-b7-U3i" id="3pN-Bs-X8h"/>
+                        <outlet property="lblStats2" destination="Cpq-kh-ZCJ" id="2Ep-uc-jF1"/>
+                        <outlet property="lblStats3" destination="tZJ-mL-DYr" id="Rsh-Q3-p6o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNW-Yf-CIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

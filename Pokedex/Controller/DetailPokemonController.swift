@@ -18,11 +18,11 @@ class DetailPokemonController: UIViewController {
     
     @IBOutlet weak var lblStats: UILabel!
     
-    @IBOutlet weak var lblImagenShiny: UILabel!
+    @IBOutlet weak var lblStats1: UILabel!
     
-    @IBOutlet weak var lblImagenFrontal: UILabel!
+    @IBOutlet weak var lblStats2: UILabel!
     
-    @IBOutlet weak var lblId: UILabel!
+    @IBOutlet weak var lblStats3: UILabel!
     
     var pokemonName : String = ""
     var url : String = ""
@@ -34,6 +34,8 @@ class DetailPokemonController: UIViewController {
         super.viewDidLoad()
         
         updateUI()
+        
+        
         
         
         
@@ -49,14 +51,35 @@ class DetailPokemonController: UIViewController {
                     var pokemon = Pokemon()
                     pokemon.id = result?.id
                     pokemon.name = result?.name
-                    self.lblNombre.text = result?.name
                     pokemon.height = result?.height
                     pokemon.weight = result?.weight
-                    //                    pokemon.sprites?.front_shiny = result?.sprites?.front_shiny
-                    //                    self.lblImagenShiny.text = result?.sprites?.front_shiny
-                    //                    pokemon.sprites?.front_shiny = result?.sprites?.front_default
-                    //                    self.lblImagenFrontal.text = result?.sprites?.front_default
+                    pokemon.sprites?.front_shiny = result?.sprites?.front_shiny
+                    pokemon.sprites?.front_shiny = result?.sprites?.front_default
                     
+                    
+                    for objPoke in result!.stats!{
+                        let pokeStat = objPoke as Stats
+                        self.pokemonStats.append(pokeStat)
+                    }
+                    //info
+                    
+                    //                    self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) \(self.pokemonStats[0].base_stat)"
+                    //                    self.lblNombre.text! =  String(self.pokemon[0].id!)
+                    //                    self.lblImagenShiny.text = self.pokemon[0].sprites!.front_shiny!
+                    //                    self.lblImagenFrontal.text = self.pokemon[0].sprites!.front_default!
+                    //                    //self.lblStats.text = self.pokemon[0].stats.
+                    //                    let imageURLString = "\(self.pokemon[0].sprites!.front_default!)"
+                    //                    UIImage.loadImageFromURL(imageURLString) { (image) in
+                    //                        if let image = image {
+                    //                            // La imagen se cargó exitosamente desde la URL
+                    //                            self.imageView.image = image
+                    //                            //  print(image)
+                    //                            //   print("la imagen se cargo correcramente")
+                    //
+                    //                        } else {
+                    //                            print("error al cargar la imagen")
+                    //                        }
+                    // Info error indexpath
                     let imageURLString = "\(result!.sprites!.front_default!)"
                     UIImage.loadImageFromURL(imageURLString) { (image) in
                         if let image = image {
@@ -68,21 +91,22 @@ class DetailPokemonController: UIViewController {
                         } else {
                             print("error al cargar la imagen")
                         }
-                        
-                        for objPokemon in result!.stats!{
-                            self.pokemonStats.append(objPokemon)
-                        }
-                        
-                        //print(self.pokemonStats)
+                        self.lblNombre.text = result?.name
                         self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) \(self.pokemonStats[0].base_stat!)"
+                        self.lblStats1.text = "\(self.pokemonStats[1].stat!.name!) \(self.pokemonStats[0].base_stat!)"
+                        self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) \(self.pokemonStats[0].base_stat!)"
+                        self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) \(self.pokemonStats[0].base_stat!)"
+                        
                         
                     }
                 }
+                
             }
         }
-        
     }
 }
+
+
 
 
 // MARK: UIImage
