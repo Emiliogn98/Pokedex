@@ -22,6 +22,8 @@ class DetailPokemonController: UIViewController {
     @IBOutlet weak var lblTypes: UILabel!
     
     
+    @IBOutlet weak var btnTiposOutlet: UIButton!
+    @IBOutlet weak var fondoImagenes: UIStackView!
     @IBOutlet weak var lblNombre: UILabel!
     
     
@@ -65,11 +67,17 @@ class DetailPokemonController: UIViewController {
         ColorFondo.layer.masksToBounds = true
         lblTypes.layer.cornerRadius = 10
         lblTypes.layer.masksToBounds = true
+        fondoImagenes.layer.cornerRadius = 40
+        fondoImagenes.layer.masksToBounds = true
         
         
         
     }
     
+    
+    @IBAction func btnTipos(_ sender: UIButton) {
+        
+    }
     func updateUI(){
         var pokemon = Pokemon()
         
@@ -129,6 +137,7 @@ class DetailPokemonController: UIViewController {
                                     self.ColorFondo.backgroundColor = color
                                     self.view.backgroundColor = color
                                     self.lblTypes.backgroundColor = color
+                                    self.fondoImagenes.backgroundColor = color
                                 }
                             }
                             
