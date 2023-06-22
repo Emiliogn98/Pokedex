@@ -41,7 +41,7 @@ class GetPokemonController: UIViewController {
     @IBAction func btnBuscar(_ sender: UIButton) {
         self.pokemonName = ""
         self.pokemonName = txtBuscar.text!
-        self.id = txtBuscar.text!
+       // self.id = txtBuscar.text!
         print(self.pokemonName)
                       guard txtBuscar.text != "" else{
                                  
@@ -65,7 +65,9 @@ class GetPokemonController: UIViewController {
                             self.collectionView.reloadData()
                     }
                 }
+                
                else {
+                   
                     PokemonViewModel.GetByElemento(elemento: self.pokemonName) { result, error in
                         self.pokemonsList.removeAll()
                         if let resultSource = result {
@@ -80,9 +82,20 @@ class GetPokemonController: UIViewController {
                                 self.collectionView.reloadData()
                             }
                             
+                        }else {
+                            print("No existe esa categoria")//podria ser una alerta que no hay categoria
+                            DispatchQueue.main.async {
+                                let alert = UIAlertController(title: "Mensaje", message: "No existe ese nombre,id o elemento.Tambien puede estar mal escrito.", preferredStyle: .alert)
+                                            let action = UIAlertAction(title: "Aceptar", style: .default)
+                                            alert.addAction(action)
+
+                                self.present(alert, animated: true)
+                                 
+                             }
                         }
-                        print("No existe esa categoria")//podria ser una alerta que no hay categoria
-                    }
+                       
+                        }
+               
                 }
             }
     }

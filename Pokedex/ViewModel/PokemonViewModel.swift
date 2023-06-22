@@ -12,23 +12,24 @@ class PokemonViewModel {
           
           let url = URL(string: "\(paginacion)")!
           URLSession.shared.dataTask(with: url) { data, response, error in
-              guard let httpResponse = response as? HTTPURLResponse,
-                    httpResponse.statusCode == 200
-                   // let jsonData = data
-              else{
-                  print("Error en la peticion")
-                  return
+               let httpResponse = response as! HTTPURLResponse
+              if httpResponse.statusCode == 200 {
+                  if let dataSource = data{
+                      let decoder = JSONDecoder()
+                      let result =  try!
+                      decoder.decode(Pokemons.self, from: dataSource)
+                      responseResult(result,nil)
+                  }
+                  if let errorSource = error{
+                      responseResult(nil,errorSource)
+                  }
+                  
+              }else{
+                  print("Error en la peticion get")
+                  responseResult(nil,error)
               }
               
-              if let dataSource = data{
-                  let decoder = JSONDecoder()
-                  let result =  try!
-                  decoder.decode(Pokemons.self, from: dataSource)
-                  responseResult(result,nil)
-              }
-              if let errorSource = error{
-                  responseResult(nil,errorSource)
-              }
+           
               
           }.resume()
           
@@ -50,7 +51,8 @@ class PokemonViewModel {
                     responseResult(nil,errorSource)
                 }
             }else{
-                print("Error en la peticion")
+                print("Error en la peticion get by name y id")
+                
                 responseResult(nil,error)
             }
         }.resume()
@@ -61,23 +63,23 @@ class PokemonViewModel {
         
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(id)")!
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse,
-                  httpResponse.statusCode == 200
-                 // let jsonData = data
-            else{
-                print("Error en la peticion")
-                return
+             let httpResponse = response as! HTTPURLResponse
+            if httpResponse.statusCode == 200 {
+                if let dataSource = data{
+                    let decoder = JSONDecoder()
+                    let result =  try!
+                    decoder.decode(Pokemon.self, from: dataSource)
+                    responseResult(result,nil)
+                }
+                if let errorSource = error{
+                    responseResult(nil,errorSource)
+                }
+            }else{
+                print("Error en la peticion de busqueda por ID")
+                responseResult(nil,error)
             }
             
-            if let dataSource = data{
-                let decoder = JSONDecoder()
-                let result =  try!
-                decoder.decode(Pokemon.self, from: dataSource)
-                responseResult(result,nil)
-            }
-            if let errorSource = error{
-                responseResult(nil,errorSource)
-            }
+         
             
         }.resume()
         
@@ -87,23 +89,24 @@ class PokemonViewModel {
         
         let url = URL(string: "https://pokeapi.co/api/v2/type/\(elemento)")!
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse,
-                  httpResponse.statusCode == 200
-                 // let jsonData = data
-            else{
-                print("Error en la peticion")
-                return
+             let httpResponse = response as! HTTPURLResponse
+            if httpResponse.statusCode == 200 {
+                if let dataSource = data{
+                    let decoder = JSONDecoder()
+                    let result =  try!
+                    decoder.decode(Tipos.self, from: dataSource)
+                    responseResult(result,nil)
+                }
+                if let errorSource = error{
+                    responseResult(nil,errorSource)
+                }
+                
+            }else{
+                print("Error en la peticion de busqueda por elemento")
+                responseResult(nil,error)
             }
             
-            if let dataSource = data{
-                let decoder = JSONDecoder()
-                let result =  try!
-                decoder.decode(Tipos.self, from: dataSource)
-                responseResult(result,nil)
-            }
-            if let errorSource = error{
-                responseResult(nil,errorSource)
-            }
+           
             
         }.resume()
         
