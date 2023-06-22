@@ -61,11 +61,11 @@ class DetailPokemonController: UIViewController {
         updateUI()
         
         
-        view2.layer.cornerRadius = 10
+        view2.layer.cornerRadius = 40
         view2.layer.masksToBounds = true
-        ColorFondo.layer.cornerRadius = 10
+        ColorFondo.layer.cornerRadius = 20
         ColorFondo.layer.masksToBounds = true
-        lblTypes.layer.cornerRadius = 10
+        lblTypes.layer.cornerRadius = 20
         lblTypes.layer.masksToBounds = true
         fondoImagenes.layer.cornerRadius = 40
         fondoImagenes.layer.masksToBounds = true
@@ -131,13 +131,18 @@ class DetailPokemonController: UIViewController {
                             self.lblStats1.text = "\(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblTypes.text = "Tipo: \(self.pokemonTypes[0].type!.name!)"
+                            self.lblTypes.text = "Tipo Principal: \(self.pokemonTypes[0].type!.name!)"
+                            self.lblTypes.text = "Tipo: \(self.pokemonTypes[1].type!.name!)"
+                            self.lblTypes.text = "Tipo: \(self.pokemonTypes[2].type!.name!)"
                             if let color = colors[self.pokemonTypes[0].type!.name!]{
                                 DispatchQueue.main.async {
                                     self.ColorFondo.backgroundColor = color
                                     self.view.backgroundColor = color
+                                    //self.view.backgroundColor = UIColor(named: "fondogris")
                                     self.lblTypes.backgroundColor = color
                                     self.fondoImagenes.backgroundColor = color
+                                //self.fondoImagenes.backgroundColor = UIColor(named: "fondogris")
+                                    
                                 }
                             }
                             
