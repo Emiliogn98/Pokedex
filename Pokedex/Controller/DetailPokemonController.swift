@@ -33,6 +33,7 @@ class DetailPokemonController: UIViewController {
     
     @IBOutlet weak var lblStats3: UILabel!
     
+    @IBOutlet weak var view2: UIView!
     
     @IBOutlet weak var imageHeart: UIImageView!
     
@@ -58,10 +59,12 @@ class DetailPokemonController: UIViewController {
         updateUI()
         
         
-        stackViewInfo.layer.cornerRadius = 10
-        stackViewInfo.layer.masksToBounds = true
-        ColorFondo.layer.cornerRadius = 20
+        view2.layer.cornerRadius = 10
+        view2.layer.masksToBounds = true
+        ColorFondo.layer.cornerRadius = 10
         ColorFondo.layer.masksToBounds = true
+        lblTypes.layer.cornerRadius = 10
+        lblTypes.layer.masksToBounds = true
         
         
         
@@ -120,11 +123,12 @@ class DetailPokemonController: UIViewController {
                             self.lblStats1.text = "\(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblTypes.text = "elemento: \(self.pokemonTypes[0].type!.name!)"
+                            self.lblTypes.text = "Tipo: \(self.pokemonTypes[0].type!.name!)"
                             if let color = colors[self.pokemonTypes[0].type!.name!]{
                                 DispatchQueue.main.async {
                                     self.ColorFondo.backgroundColor = color
                                     self.view.backgroundColor = color
+                                    self.lblTypes.backgroundColor = color
                                 }
                             }
                             
