@@ -15,7 +15,7 @@ class GetPokemonController: UIViewController {
     var url : String = ""
     var paginacion : String = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20"
     var nextPaginacion : String = ""
-    var previusPaginacion : String = ""
+    var previusPaginacion : String? = nil
     var id : String = ""
     var color = UIColor.red.cgColor
     var color2 = UIColor.white.cgColor
@@ -90,7 +90,9 @@ class GetPokemonController: UIViewController {
                                             alert.addAction(action)
 
                                 self.present(alert, animated: true)
-                                 
+                                self.pokemonsList.removeAll()
+                                self.collectionView.reloadData()
+                              
                              }
                         }
                        
@@ -109,10 +111,14 @@ class GetPokemonController: UIViewController {
     
     
     @IBAction func btnAnterior(_ sender: UIButton) {
-        self.paginacion = self.previusPaginacion
-      //  print(self.paginacion)
-        updateUI()
-        
+        print("paginacion: \(self.previusPaginacion)")
+        if  self.previusPaginacion == nil{
+            
+        }else{
+            self.paginacion = self.previusPaginacion!
+            //  print(self.paginacion)
+            updateUI()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
        // updateUI()
@@ -123,7 +129,7 @@ class GetPokemonController: UIViewController {
         PokemonViewModel.GetPokemon(paginacion: self.paginacion) { result, error in
             DispatchQueue.main.async {
                 if result! != nil {
-                    self.previusPaginacion = result?.previous ?? "no hay"
+                    self.previusPaginacion = result?.previous ?? nil
                     self.nextPaginacion = result!.next!
                     for objPokemon in result!.results {
                       
