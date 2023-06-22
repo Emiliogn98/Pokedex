@@ -347,7 +347,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "95"
             endingLineNumber = "95"
-            landmarkName = "btnBuscar(_:)"
+            landmarkName = "btnSiguiente(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -487,7 +487,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "btnBuscar(_:)"
+            landmarkName = "btnAnterior(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -535,7 +535,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "btnBuscar(_:)"
+            landmarkName = "btnAnterior(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -598,8 +598,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            landmarkName = "GetPokemonController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

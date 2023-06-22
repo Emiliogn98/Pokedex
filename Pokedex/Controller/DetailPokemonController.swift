@@ -49,8 +49,8 @@ class DetailPokemonController: UIViewController {
     var pokemon : [Pokemon] = []
     var pokemonStats : [Stats] = []
     var pokemonTypes : [Types] = []
-    let colors: [String: UIColor] = ["normal": UIColor.systemPink, "water": UIColor .blue,"fire": UIColor.red,
-                                     "grass": UIColor(named: "grass")!]
+    let colors: [String: UIColor] = ["normal": UIColor(named: "normal")!, "water": UIColor(named: "water")!,"fire": UIColor(named: "fire")!,
+                                     "grass": UIColor(named: "grass")!, "ground": UIColor(named: "ground")!, "rock": UIColor(named: "rock")!, "poison": UIColor(named: "poison")!, "psychic": UIColor(named: "psychic")!, "electric": UIColor(named: "electric")!, "ghost": UIColor(named: "ghost")!, "fighting": UIColor(named: "fighting")!, "bug": UIColor(named: "bug")!, "ice": UIColor(named: "ice")!,"dark": UIColor(named: "dark")!,"steel": UIColor(named: "steel")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,25 +93,6 @@ class DetailPokemonController: UIViewController {
                         self.pokemonTypes.append(pokeType)
                     }
                     
-                    //info
-                    
-                    //                    self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) \(self.pokemonStats[0].base_stat)"
-                    //                    self.lblNombre.text! =  String(self.pokemon[0].id!)
-                    //                    self.lblImagenShiny.text = self.pokemon[0].sprites!.front_shiny!
-                    //                    self.lblImagenFrontal.text = self.pokemon[0].sprites!.front_default!
-                    //                    //self.lblStats.text = self.pokemon[0].stats.
-                    //                    let imageURLString = "\(self.pokemon[0].sprites!.front_default!)"
-                    //                    UIImage.loadImageFromURL(imageURLString) { (image) in
-                    //                        if let image = image {
-                    //                            // La imagen se cargó exitosamente desde la URL
-                    //                            self.imageView.image = image
-                    //                            //  print(image)
-                    //                            //   print("la imagen se cargo correcramente")
-                    //
-                    //                        } else {
-                    //                            print("error al cargar la imagen")
-                    //                        }
-                    // Info error indexpath
                     let imageURLString = "\(result!.sprites!.front_default!)"
                     UIImage.loadImageFromURL(imageURLString) { [self] (image) in
                         if let image = image {
