@@ -50,7 +50,7 @@ class DetailPokemonController: UIViewController {
     var pokemonStats : [Stats] = []
     var pokemonTypes : [Types] = []
     let colors: [String: UIColor] = ["normal": UIColor.systemPink, "water": UIColor .blue,"fire": UIColor.red,
-                                     "grass": UIColor.green]
+                                     "grass": UIColor(named: "grass")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
