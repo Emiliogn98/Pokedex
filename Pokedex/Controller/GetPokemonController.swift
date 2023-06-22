@@ -13,8 +13,6 @@ class GetPokemonController: UIViewController {
     var pokemonName : String = ""
     var text : String = ""
     var url : String = ""
-    
-    var elemento : String = ""
     var paginacion : String = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20"
     var nextPaginacion : String = ""
     var previusPaginacion : String = ""
@@ -22,7 +20,7 @@ class GetPokemonController: UIViewController {
     var color = UIColor.red.cgColor
     var color2 = UIColor.white.cgColor
  
-    
+    var result = Tipos()
     
     //Outlet
     
@@ -37,18 +35,14 @@ class GetPokemonController: UIViewController {
         collectionView.delegate = self
         updateUI()
        
-    
-       
- 
-      
-       
     }
     //Action
     
     @IBAction func btnBuscar(_ sender: UIButton) {
+        self.pokemonName = ""
         self.pokemonName = txtBuscar.text!
-        self.elemento = txtBuscar.text!
         self.id = txtBuscar.text!
+        print(self.pokemonName)
                       guard txtBuscar.text != "" else{
                                  
                           txtBuscar.layer.borderColor = color
@@ -58,55 +52,39 @@ class GetPokemonController: UIViewController {
                              }
                       txtBuscar.layer.borderColor = color2
                       txtBuscar.layer.borderWidth = 1.0
-        
-                   
-        
             PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
                 self.pokemonsList.removeAll()
-                if let resultSource = result{
-                    print("estoy aqui")
-                } else {
-                    print("estoy por que no tengo nombre")
+                if let resultSource = result {
+                    DispatchQueue.main.async{
+                            var objpoke = Results()
+                            objpoke.name = result?.name
+                            self.id = String(result!.id!)
+                            var url1 : String = "https://pokeapi.co/api/v2/pokemon/\(self.id)"
+                            objpoke.url = url1
+                            self.pokemonsList.append(objpoke)
+                            self.collectionView.reloadData()
+                    }
                 }
-                
-                DispatchQueue.main.async{
-                    if result != nil {
-                        
-                        
-                        //self.pokemonsList[0].name = result?.name
-                        var objpoke = Results()
-                        objpoke.name = result?.name
-                        self.id = String(result!.id!)
-                        var url1 : String = "https://pokeapi.co/api/v2/pokemon/\(self.id)"
-                        objpoke.url = url1
-                        self.pokemonsList.append(objpoke)
-                        self.collectionView.reloadData()
-
+               else {
+                    PokemonViewModel.GetByElemento(elemento: self.pokemonName) { result, error in
+                        self.pokemonsList.removeAll()
+                        if let resultSource = result {
+                            self.result = resultSource
+                            for ObjPokemon in result!.pokemon!{
+                                var pokemonElement = Results()
+                                pokemonElement.name = ObjPokemon.pokemon.name
+                                pokemonElement.url = ObjPokemon.pokemon.url
+                                self.pokemonsList.append(pokemonElement)
+                            }
+                            DispatchQueue.main.async {
+                                self.collectionView.reloadData()
+                            }
+                            
+                        }
+                        print("No existe esa categoria")//podria ser una alerta que no hay categoria
                     }
                 }
             }
-       
-            print("buscar por elemento")
-            PokemonViewModel.GetByElemento(elemento: self.elemento) { result, error in
-                self.pokemonsList.removeAll()
-                DispatchQueue.main.async{
-                    if result != nil {
-                
-                        var objpoke = Results()
-                        objpoke.name = result?.pokemon![0].name
-                        objpoke.url = result?.pokemon![0].url
-                   
-                        self.pokemonsList.append(objpoke)
-                        self.collectionView.reloadData()
-
-                    }
-                }
-            }
-            
-        
-        
-       
-        
     }
     
     @IBAction func btnSiguiente(_ sender: UIButton) {

@@ -28,7 +28,8 @@ struct Results: Codable {
     var url  : String? = nil
     
     init() {
-
+        self.name = ""
+        self.url = ""
     }
 
 }

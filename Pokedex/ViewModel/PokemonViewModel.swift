@@ -38,24 +38,21 @@ class PokemonViewModel {
         
         let url = URL(string: "https://pokeapi.co/api/v2/pokemon/\(namePokemon)")!
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse,
-                  httpResponse.statusCode == 200
-                 // let jsonData = data
-            else{
+            let httpResponse = response as! HTTPURLResponse
+            if httpResponse.statusCode == 200 {
+                if let dataSource = data{
+                    let decoder = JSONDecoder()
+                    let result =  try!
+                    decoder.decode(Pokemon.self, from: dataSource)
+                    responseResult(result,nil)
+                }
+                if let errorSource = error{
+                    responseResult(nil,errorSource)
+                }
+            }else{
                 print("Error en la peticion")
-                return
+                responseResult(nil,error)
             }
-            
-            if let dataSource = data{
-                let decoder = JSONDecoder()
-                let result =  try!
-                decoder.decode(Pokemon.self, from: dataSource)
-                responseResult(result,nil)
-            }
-            if let errorSource = error{
-                responseResult(nil,errorSource)
-            }
-            
         }.resume()
         
         //  return result
