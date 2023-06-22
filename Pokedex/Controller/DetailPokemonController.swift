@@ -12,6 +12,7 @@ class DetailPokemonController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var imageViewShiny: UIImageView!
     
     @IBOutlet weak var ColorFondo: UIStackView!
     
@@ -61,7 +62,7 @@ class DetailPokemonController: UIViewController {
         stackViewInfo.layer.masksToBounds = true
         ColorFondo.layer.cornerRadius = 20
         ColorFondo.layer.masksToBounds = true
-       
+        
         
         
     }
@@ -122,27 +123,39 @@ class DetailPokemonController: UIViewController {
                         } else {
                             print("error al cargar la imagen")
                         }
-                        self.lblNombre.text = result?.name
-                        self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                        self.lblStats1.text = "\(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                        self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                        self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                        self.lblTypes.text = "elemento: \(self.pokemonTypes[0].type!.name!)"
-                        if let color = colors[self.pokemonTypes[0].type!.name!]{
-                            DispatchQueue.main.async {
-                                self.ColorFondo.backgroundColor = color
+                        let imageURLString = "\(result!.sprites!.front_shiny!)"
+                        UIImage.loadImageFromURL(imageURLString) { [self] (image) in
+                            if let image = image {
+                                // La imagen se cargó exitosamente desde la URL
+                                   self.imageViewShiny.image = image
+                                //  print(image)
+                                //   print("la imagen se cargo correcramente")
+                                
+                            } else {
+                                print("error al cargar la imagen")
                             }
+                            self.lblNombre.text = result?.name
+                            self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.lblStats1.text = "\(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.lblTypes.text = "elemento: \(self.pokemonTypes[0].type!.name!)"
+                            if let color = colors[self.pokemonTypes[0].type!.name!]{
+                                DispatchQueue.main.async {
+                                    self.ColorFondo.backgroundColor = color
+                                    self.view.backgroundColor = color
+                                }
+                            }
+                            
+                            
                         }
-                        
-                        
                     }
+                    
                 }
-                
             }
         }
     }
 }
-
 
 
 
