@@ -17,6 +17,7 @@
 		334E5C682A40A9DE00881114 /* PokemonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E5C672A40A9DE00881114 /* PokemonViewModel.swift */; };
 		334E5C6B2A40AA6100881114 /* PokemonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E5C692A40AA6100881114 /* PokemonCell.swift */; };
 		334E5C6C2A40AA6100881114 /* PokemonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 334E5C6A2A40AA6100881114 /* PokemonCell.xib */; };
+		33F367422A43DBAB00AE7F0E /* Tipos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F367412A43DBAB00AE7F0E /* Tipos.swift */; };
 		E335CD192A41011200CF2255 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335CD182A41011200CF2255 /* Pokemon.swift */; };
 		E3DA283F2A422EB700F742CC /* DetailPokemonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DA283E2A422EB700F742CC /* DetailPokemonController.swift */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		334E5C672A40A9DE00881114 /* PokemonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewModel.swift; sourceTree = "<group>"; };
 		334E5C692A40AA6100881114 /* PokemonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonCell.swift; sourceTree = "<group>"; };
 		334E5C6A2A40AA6100881114 /* PokemonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PokemonCell.xib; sourceTree = "<group>"; };
+		33F367412A43DBAB00AE7F0E /* Tipos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipos.swift; sourceTree = "<group>"; };
 		E335CD182A41011200CF2255 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		E3DA283E2A422EB700F742CC /* DetailPokemonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPokemonController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +106,7 @@
 			children = (
 				334E5C652A40A8D000881114 /* Pokemons.swift */,
 				E335CD182A41011200CF2255 /* Pokemon.swift */,
+				33F367412A43DBAB00AE7F0E /* Tipos.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				334E5C4B2A40A67500881114 /* AppDelegate.swift in Sources */,
 				334E5C682A40A9DE00881114 /* PokemonViewModel.swift in Sources */,
 				334E5C662A40A8D000881114 /* Pokemons.swift in Sources */,
+				33F367422A43DBAB00AE7F0E /* Tipos.swift in Sources */,
 				334E5C632A40A6CD00881114 /* GetPokemonController.swift in Sources */,
 				334E5C4D2A40A67500881114 /* SceneDelegate.swift in Sources */,
 				334E5C6B2A40AA6100881114 /* PokemonCell.swift in Sources */,

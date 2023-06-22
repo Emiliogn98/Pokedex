@@ -86,7 +86,7 @@ class PokemonViewModel {
         
         //  return result
     }
-    static func GetByElemento (elemento: String,responseResult : @escaping(Pokemon?,Error?) -> Void) {
+    static func GetByElemento (elemento: String,responseResult : @escaping(Tipos?,Error?) -> Void) {
         
         let url = URL(string: "https://pokeapi.co/api/v2/type/\(elemento)")!
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -101,7 +101,7 @@ class PokemonViewModel {
             if let dataSource = data{
                 let decoder = JSONDecoder()
                 let result =  try!
-                decoder.decode(Pokemon.self, from: dataSource)
+                decoder.decode(Tipos.self, from: dataSource)
                 responseResult(result,nil)
             }
             if let errorSource = error{

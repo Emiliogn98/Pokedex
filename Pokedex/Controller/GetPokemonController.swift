@@ -60,9 +60,15 @@ class GetPokemonController: UIViewController {
                       txtBuscar.layer.borderWidth = 1.0
         
                    
-        if txtBuscar.text != "" {
+        
             PokemonViewModel.GetByName(namePokemon: self.pokemonName) { result, error in
                 self.pokemonsList.removeAll()
+                if let resultSource = result{
+                    print("estoy aqui")
+                } else {
+                    print("estoy por que no tengo nombre")
+                }
+                
                 DispatchQueue.main.async{
                     if result != nil {
                         
@@ -79,26 +85,25 @@ class GetPokemonController: UIViewController {
                     }
                 }
             }
-        } else {
-            PokemonViewModel.GetById(id: self.id) { result, error in
+       
+            print("buscar por elemento")
+            PokemonViewModel.GetByElemento(elemento: self.elemento) { result, error in
                 self.pokemonsList.removeAll()
                 DispatchQueue.main.async{
                     if result != nil {
-                        
-                        
-                        //self.pokemonsList[0].name = result?.name
+                
                         var objpoke = Results()
-                        objpoke.name = result?.name
-                        objpoke.url = result?.sprites?.front_shiny
+                        objpoke.name = result?.pokemon![0].name
+                        objpoke.url = result?.pokemon![0].url
+                   
                         self.pokemonsList.append(objpoke)
                         self.collectionView.reloadData()
 
                     }
                 }
             }
-          
             
-        }
+        
         
        
         
