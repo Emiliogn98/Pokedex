@@ -79,13 +79,13 @@ class DetailPokemonController: UIViewController {
         
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(buttonActivationNotification), name: NSNotification.Name("ButtonActivationNotification"), object: nil)
-        
+//        NotificationCenter.default.addObserver(self, selector: #selector(buttonActivationNotification), name: NSNotification.Name("ButtonActivationNotification"), object: nil)
+
     }
-    @objc func buttonActivationNotification() {
-        btnTiposOutlet.isEnabled = true
-       }
-    
+//    @objc func buttonActivationNotification() {
+//        btnTiposOutlet.isEnabled = true
+//       }
+
     
     
     @IBAction func btnTipos(_ sender: UIButton) {
