@@ -262,7 +262,7 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
         //controlar que hacer antes de ir a la siguiente vista
         
         if segue.identifier == "PokemonDetailSegue" {
-            let formControl = segue.destination as! DetailPokemonController
+            let formControl = segue.destination as! DetailPokemonProgramaticoController
             formControl.pokemonName = self.pokemonName
             formControl.url = self.url
             //formControl.id = self.id

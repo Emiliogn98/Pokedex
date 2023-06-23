@@ -24,9 +24,11 @@ class DetailPokemonProgramaticoController: UIViewController {
     private let onboardingImageViewDefault: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "pokeball1")
+      //  imageView.image = UIImage(named: "pokeball1")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.red
+        imageView.backgroundColor = UIColor(named: "fondogris")
+        imageView.layer.cornerRadius = 15
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     private let onboardingImageViewShiny: UIImageView = {
@@ -34,7 +36,9 @@ class DetailPokemonProgramaticoController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "pokeball")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.red
+        imageView.backgroundColor = UIColor(named: "fondogris")
+        imageView.layer.cornerRadius = 15
+        imageView.layer.masksToBounds = true
         return imageView
     }()
 
@@ -58,7 +62,6 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblImagenDefault.text = "Normal"
         lblImagenDefault.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
         lblImagenDefault.translatesAutoresizingMaskIntoConstraints = false
-        lblImagenDefault.backgroundColor = UIColor.red
         lblImagenDefault.layer.cornerRadius = 15
         lblImagenDefault.layer.masksToBounds = true
         return lblImagenDefault
@@ -108,7 +111,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblStatHP.text = "HP"
         lblStatHP.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         lblStatHP.translatesAutoresizingMaskIntoConstraints = false
-        lblStatHP.backgroundColor = UIColor.red
+        lblStatHP.backgroundColor = UIColor(named: "fondogris")
         lblStatHP.layer.cornerRadius = 15
         lblStatHP.layer.masksToBounds = true
         return lblStatHP
@@ -119,7 +122,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "heart")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.red
+        //imageView.backgroundColor = UIColor.red
         return imageView
     }()
     private let textLabelStatDefensa : UILabel = {
@@ -129,7 +132,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblStatDefensa.text = "Defensa"
         lblStatDefensa.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         lblStatDefensa.translatesAutoresizingMaskIntoConstraints = false
-        lblStatDefensa.backgroundColor = UIColor.red
+        lblStatDefensa.backgroundColor = UIColor(named: "fondogris")
         lblStatDefensa.layer.cornerRadius = 15
         lblStatDefensa.layer.masksToBounds = true
         return lblStatDefensa
@@ -139,7 +142,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "defense")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.red
+       // imageView.backgroundColor = UIColor.red
         return imageView
     }()
     private let textLabelStatAtaque : UILabel = {
@@ -149,7 +152,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblStatAtaque.text = "Ataque"
         lblStatAtaque.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         lblStatAtaque.translatesAutoresizingMaskIntoConstraints = false
-        lblStatAtaque.backgroundColor = UIColor.red
+        lblStatAtaque.backgroundColor = UIColor(named: "fondogris")
         lblStatAtaque.layer.cornerRadius = 15
         lblStatAtaque.layer.masksToBounds = true
         return lblStatAtaque
@@ -159,7 +162,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "sword")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.red
+      //  imageView.backgroundColor = UIColor.red
         return imageView
     }()
     private let textLabelStatEspecial : UILabel = {
@@ -169,7 +172,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblStatAtaque.text = "special"
         lblStatAtaque.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         lblStatAtaque.translatesAutoresizingMaskIntoConstraints = false
-        lblStatAtaque.backgroundColor = UIColor.red
+        lblStatAtaque.backgroundColor = UIColor(named: "fondogris")
         lblStatAtaque.layer.cornerRadius = 15
         lblStatAtaque.layer.masksToBounds = true
         return lblStatAtaque
@@ -179,7 +182,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "star")
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor.red
+       // imageView.backgroundColor = UIColor.red
         return imageView
     }()
 
@@ -193,22 +196,27 @@ class DetailPokemonProgramaticoController: UIViewController {
         
         NSLayoutConstraint.activate([
             /* label de elemento*/
-            textLabelNombreElemento.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 30),
+            textLabelNombreElemento.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 10),
             textLabelNombreElemento.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
             textLabelNombreElemento.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
-            /* Boton de elementos*/
-            onboardBtnTipos.topAnchor.constraint(equalTo: textLabelNombreElemento.bottomAnchor, constant: 15),
+            /* Boton de elementos 1*/
+            onboardBtnTipos.topAnchor.constraint(equalTo: textLabelStatEspecial.bottomAnchor, constant: 40),
             onboardBtnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
             onboardBtnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
-            onboardBtnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -665),
+            onboardBtnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -170),
+            /* Boton de elementos 2*/
+            onboardBtnTipos.topAnchor.constraint(equalTo: textLabelNombreElemento.bottomAnchor, constant: 3),
+            onboardBtnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
+            onboardBtnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
+            onboardBtnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -660),
             /* label Imagen Pokemon normal*/
-            textLabelImagenDefault.topAnchor.constraint(equalTo: onboardBtnTipos.bottomAnchor,constant: 15),
+            textLabelImagenDefault.topAnchor.constraint(equalTo: onboardBtnTipos.bottomAnchor,constant: 5),
             textLabelImagenDefault.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
             textLabelImagenDefault.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor,constant: -180),
             textLabelImagenDefault.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -630),
             
             /* label imagen Pokemon Shiny*/
-            textLabelImagenShiny.topAnchor.constraint(equalTo: onboardBtnTipos.bottomAnchor,constant: 15),
+            textLabelImagenShiny.topAnchor.constraint(equalTo: onboardBtnTipos.bottomAnchor,constant: 5),
             textLabelImagenShiny.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor,constant: -20),
             textLabelImagenShiny.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor,constant: 180),
             textLabelImagenShiny.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -630),
@@ -279,11 +287,108 @@ class DetailPokemonProgramaticoController: UIViewController {
             
         
         ])
+        
+        
+        updateUI()
 
     }
     
     @objc func showMessage(){
         print("prueba boton")
+    }
+    
+    func updateUI(){
+        
+        
+        
+        PokemonViewModel.GetByName(namePokemon: self.pokemonName ) { result, error in
+            DispatchQueue.main.async{
+                if result! != nil {
+                    var pokemon = Pokemon()
+                    pokemon.id = result?.id
+                    pokemon.name = result?.name
+                    pokemon.height = result?.height
+                    pokemon.weight = result?.weight
+                    pokemon.sprites?.front_shiny = result?.sprites?.front_shiny
+                    pokemon.sprites?.front_shiny = result?.sprites?.front_default
+                    
+                    
+                    for objPoke in result!.stats!{
+                        let pokeStat = objPoke as Stats
+                        self.pokemonStats.append(pokeStat)
+                    }
+                    
+                    for objPoke in result!.types!{
+                        let pokeType = objPoke as! Types
+                        self.pokemonTypes.append(pokeType)
+                    }
+                    
+                    let imageURLString = "\(result!.sprites!.front_default!)"
+                    UIImage.loadImageFromURL(imageURLString) { [self] (image) in
+                        if let image = image {
+                            // La imagen se cargó exitosamente desde la URL
+                           // self.imageView.image = image
+                            self.onboardingImageViewDefault.image = image
+                         
+                            
+                        } else {
+                            print("error al cargar la imagen")
+                        }
+                        let imageURLString = "\(result!.sprites!.front_shiny!)"
+                        UIImage.loadImageFromURL(imageURLString) { [self] (image) in
+                            if let image = image {
+                                // La imagen se cargó exitosamente desde la URL
+                              
+                                self.onboardingImageViewShiny.image = image
+                            
+                                
+                            } else {
+                                print("error al cargar la imagen")
+                            }
+                            self.textLabelNombrePokemon.text = result?.name
+                            self.textLabelStatHP.text = "  \(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.textLabelStatDefensa.text = "  \(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.textLabelStatAtaque.text = "  \(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.textLabelStatEspecial.text = "  \(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.textLabelNombreElemento.text = "\(self.pokemonTypes[0].type!.name!)"
+                            
+                      
+                            if let color = colors[self.pokemonTypes[0].type!.name!]{
+                                DispatchQueue.main.async {
+                                    self.textLabelNombreElemento.backgroundColor = color
+                                   // self.view.backgroundColor = color
+                                    //self.view.backgroundColor = UIColor(named: "fondogris")
+                                    self.textLabelNombrePokemon.backgroundColor = color
+                                    self.textLabelImagenDefault.backgroundColor = color
+                                    self.textLabelImagenShiny.backgroundColor = color
+                                    self.onboardBtnTipos.tintColor = color
+                                    self.onboardBtnTipos.setTitle("\(self.pokemonTypes[0].type!.name!)", for: .normal)
+                                    
+                                    
+                                    
+                                }
+                            }
+//                            if self.pokemonTypes.count >= 2{
+//                                print("entro por que tiene 2 elementos")
+//                                self.btnTipos2Outlet.isHidden = false
+//                                if let color2 = colors[self.pokemonTypes[1].type!.name!]{
+//
+//                                    self.btnTipos2Outlet.tintColor = color2
+//                                    self.btnTipos2Outlet.setTitle("\(self.pokemonTypes[1].type!.name!)", for: .normal)
+//
+//                                }
+//                            }
+//                            else{
+//                                print("entre aqui por que tengo 1 elemento")
+//                                self.btnTipos2Outlet.isHidden = true
+//
+//                            }
+                        }
+                     }
+                    
+                }
+            }
+        }
     }
 
 
