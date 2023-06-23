@@ -16,7 +16,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
             endingLineNumber = "120"
-            landmarkName = "updateUI()"
+            landmarkName = "btnAnterior(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -79,7 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
             endingLineNumber = "117"
-            landmarkName = "updateUI()"
+            landmarkName = "btnAnterior(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -142,8 +142,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "97"
             endingLineNumber = "97"
-            landmarkName = "GetPokemonController"
-            landmarkType = "3">
+            landmarkName = "btnBuscar(_:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "F6EAAD3F-D57A-45C1-B118-BD5E3412C227 - 59b278dfcc2246c8"
@@ -188,8 +188,8 @@
             filePath = "Pokedex/Controller/DetailPokemonController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -251,9 +251,9 @@
             filePath = "Pokedex/Controller/DetailPokemonController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "updateUI()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "btnTipos(_:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -329,10 +329,10 @@
             filePath = "Pokedex/Controller/DetailPokemonController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "DetailPokemonController"
-            landmarkType = "3">
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "C81DE6AF-F061-4C20-944F-0E9A5EB2FD3B - 312cde9dc6cff8d8"
@@ -392,10 +392,10 @@
             filePath = "Pokedex/Controller/DetailPokemonController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "updateUI()"
-            landmarkType = "7">
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "DetailPokemonController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "7771BD73-1995-498A-8C98-998DC5055778 - 6dfe457053a647da"
@@ -457,7 +457,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "147"
             endingLineNumber = "147"
-            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkName = "updateUI()"
             landmarkType = "7">
             <Locations>
                <Location

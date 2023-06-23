@@ -51,6 +51,7 @@ class DetailPokemonController: UIViewController {
     
     
     var pokemonName : String = ""
+    var elemento : String = ""
     var url : String = ""
     var id : String = ""
     var pokemon : [Pokemon] = []
@@ -84,18 +85,21 @@ class DetailPokemonController: UIViewController {
     
     
     @IBAction func btnTipos(_ sender: UIButton) {
+        self.elemento = self.pokemonTypes[0].type!.name!
         self.performSegue(withIdentifier: "DetalleGetSegue", sender: self)
         
     }
     
     @IBAction func btnTipos2(_ sender: UIButton) {
+        self.elemento = self.pokemonTypes[1].type!.name!
         self.performSegue(withIdentifier: "DetalleGetSegue", sender: self)
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //controlar que hacer antes de ir a la siguiente vista
         if segue.identifier == "DetalleGetSegue" {
             let formControl = segue.destination as! GetPokemonController
-           // formControl.paginacion = self.pokemonTypes[0].type!.name!
+            formControl.paginacion = self.elemento
             
             
         }
@@ -155,8 +159,8 @@ class DetailPokemonController: UIViewController {
                                 self.lblStats2.text = "  \(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                                 self.lblStats3.text = "  \(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                                 self.lblTypes.text = "Tipo Principal: \(self.pokemonTypes[0].type!.name!)"
-                                //   self.lblTypes.text = "Tipo: \(self.pokemonTypes[1].type!.name!)"
-                                // self.lblTypes.text = "Tipo: \(self.pokemonTypes[2].type!.name!)"
+                                
+                          
                                 if let color = colors[self.pokemonTypes[0].type!.name!]{
                                     DispatchQueue.main.async {
                                         self.ColorFondo.backgroundColor = color
