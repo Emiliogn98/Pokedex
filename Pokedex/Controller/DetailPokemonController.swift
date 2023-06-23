@@ -23,6 +23,10 @@ class DetailPokemonController: UIViewController {
     
     
     @IBOutlet weak var btnTiposOutlet: UIButton!
+    
+    @IBOutlet weak var btnTipos2Outlet: UIButton!
+    
+    
     @IBOutlet weak var fondoImagenes: UIStackView!
     @IBOutlet weak var lblNombre: UILabel!
     
@@ -67,8 +71,12 @@ class DetailPokemonController: UIViewController {
         ColorFondo.layer.masksToBounds = true
         lblTypes.layer.cornerRadius = 20
         lblTypes.layer.masksToBounds = true
+        stackViewInfo.layer.cornerRadius = 20
+        stackViewInfo.layer.masksToBounds = true
         fondoImagenes.layer.cornerRadius = 40
         fondoImagenes.layer.masksToBounds = true
+        
+      
         
         
         
@@ -78,6 +86,10 @@ class DetailPokemonController: UIViewController {
     @IBAction func btnTipos(_ sender: UIButton) {
         
     }
+    
+    @IBAction func btnTipos2(_ sender: UIButton) {
+    }
+    
     func updateUI(){
         var pokemon = Pokemon()
         
@@ -127,10 +139,10 @@ class DetailPokemonController: UIViewController {
                                 print("error al cargar la imagen")
                             }
                             self.lblNombre.text = result?.name
-                            self.lblStats.text = "\(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblStats1.text = "\(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.lblStats.text = "  \(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.lblStats1.text = "  \(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.lblStats2.text = "  \(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.lblStats3.text = "  \(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.lblTypes.text = "Tipo Principal: \(self.pokemonTypes[0].type!.name!)"
                          //   self.lblTypes.text = "Tipo: \(self.pokemonTypes[1].type!.name!)"
                            // self.lblTypes.text = "Tipo: \(self.pokemonTypes[2].type!.name!)"
@@ -140,13 +152,28 @@ class DetailPokemonController: UIViewController {
                                     self.view.backgroundColor = color
                                     //self.view.backgroundColor = UIColor(named: "fondogris")
                                     self.lblTypes.backgroundColor = color
-                                    self.fondoImagenes.backgroundColor = color
-                                //self.fondoImagenes.backgroundColor = UIColor(named: "fondogris")
+                                    self.btnTiposOutlet.tintColor = color
+                                    self.btnTiposOutlet.setTitle("\(self.pokemonTypes[0].type!.name!)", for: .normal)
+                                   
+                              
                                     
                                 }
                             }
-                            
-                            
+                            if self.pokemonTypes.count >= 2{
+                                print("entro por que tiene 2 elementos")
+                                self.btnTipos2Outlet.isHidden = false
+                                if let color2 = colors[self.pokemonTypes[1].type!.name!]{
+                                    
+                                    self.btnTipos2Outlet.tintColor = color2
+                                    self.btnTipos2Outlet.setTitle("\(self.pokemonTypes[1].type!.name!)", for: .normal)
+                                
+                            }
+                            }
+                            else{
+                                print("entre aqui por que tengo 1 elemento")
+                                self.btnTipos2Outlet.isHidden = true
+                               
+                                }
                         }
                     }
                     
