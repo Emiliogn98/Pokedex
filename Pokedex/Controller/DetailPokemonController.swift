@@ -132,8 +132,8 @@ class DetailPokemonController: UIViewController {
                             self.lblStats2.text = "\(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.lblStats3.text = "\(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.lblTypes.text = "Tipo Principal: \(self.pokemonTypes[0].type!.name!)"
-                            self.lblTypes.text = "Tipo: \(self.pokemonTypes[1].type!.name!)"
-                            self.lblTypes.text = "Tipo: \(self.pokemonTypes[2].type!.name!)"
+                         //   self.lblTypes.text = "Tipo: \(self.pokemonTypes[1].type!.name!)"
+                           // self.lblTypes.text = "Tipo: \(self.pokemonTypes[2].type!.name!)"
                             if let color = colors[self.pokemonTypes[0].type!.name!]{
                                 DispatchQueue.main.async {
                                     self.ColorFondo.backgroundColor = color
