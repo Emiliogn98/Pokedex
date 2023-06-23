@@ -19,13 +19,17 @@ class GetPokemonController: UIViewController {
     var id : String = ""
     var color = UIColor.red.cgColor
     var color2 = UIColor.white.cgColor
+    var elemento : String = ""
+    
  
     var result = Tipos()
     
     //Outlet
     
-
+    @IBOutlet weak var btnBuscarOutlet: UIButton!
+    
     @IBOutlet weak var txtBuscar: UITextField!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +39,47 @@ class GetPokemonController: UIViewController {
         collectionView.delegate = self
         updateUI()
        
+        
+      
+   
+       
     }
     //Action
-    
-    
+    func GetElement() {
+        if self.elemento != ""{
+            PokemonViewModel.GetByElemento(elemento: self.elemento) { result, error in
+                self.pokemonsList.removeAll()
+                if let resultSource = result {
+                    self.result = resultSource
+                    for ObjPokemon in result!.pokemon!{
+                        var pokemonElement = Results()
+                        pokemonElement.name = ObjPokemon.pokemon.name
+                        pokemonElement.url = ObjPokemon.pokemon.url
+                        self.pokemonsList.append(pokemonElement)
+                    }
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                    
+                }else {
+                    print("No existe esa categoria")//podria ser una alerta que no hay categoria
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Mensaje", message: "No existe ese nombre,id o elemento.Tambien puede estar mal escrito.", preferredStyle: .alert)
+                                    let action = UIAlertAction(title: "Aceptar", style: .default)
+                                    alert.addAction(action)
+
+                        self.present(alert, animated: true)
+                        self.pokemonsList.removeAll()
+                        self.collectionView.reloadData()
+                      
+                     }
+                }
+               
+                }
+        }
+        print("me sali por que no tengo info")
+       
+       }
     
     @IBAction func btnBuscar(_ sender: UIButton) {
         self.pokemonName = ""
@@ -123,7 +164,16 @@ class GetPokemonController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        updateUI()
+//        NotificationCenter.default.post(name: NSNotification.Name("ButtonActivationNotification"), object: nil)
+//        self.btnBuscarOutlet.isEnabled  = true
+        
+      
+      
+       
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        GetElement()
+    
     }
     func updateUI(){
         self.pokemonsList.removeAll()

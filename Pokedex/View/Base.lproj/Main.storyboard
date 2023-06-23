@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j4t-ju-SwG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -154,6 +154,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Pokédex" id="0m9-Q1-74g"/>
                     <connections>
+                        <outlet property="btnBuscarOutlet" destination="b6d-2s-Z8X" id="0CR-8c-y6n"/>
                         <outlet property="collectionView" destination="uor-IJ-dZQ" id="8DL-K1-m5j"/>
                         <outlet property="txtBuscar" destination="ghO-XA-JP3" id="l3G-ea-jYO"/>
                         <segue destination="3Vr-kw-WY3" kind="show" identifier="PokemonDetailSegue" id="Ein-7t-epP"/>
@@ -367,6 +368,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Ein-7t-epP"/>
         <segue reference="XYh-Fl-omu"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -58,7 +58,7 @@ class DetailPokemonController: UIViewController {
     var pokemonStats : [Stats] = []
     var pokemonTypes : [Types] = []
     let colors: [String: UIColor] = ["normal": UIColor(named: "normal")!, "water": UIColor(named: "water")!,"fire": UIColor(named: "fire")!,
-                                     "grass": UIColor(named: "grass")!, "ground": UIColor(named: "ground")!, "rock": UIColor(named: "rock")!, "poison": UIColor(named: "poison")!, "psychic": UIColor(named: "psychic")!, "electric": UIColor(named: "electric")!, "ghost": UIColor(named: "ghost")!, "fighting": UIColor(named: "fighting")!, "bug": UIColor(named: "bug")!, "ice": UIColor(named: "ice")!,"dark": UIColor(named: "dark")!,"steel": UIColor(named: "steel")!, "dragon": UIColor(named: "dragon")!]
+                                     "grass": UIColor(named: "grass")!, "ground": UIColor(named: "ground")!, "rock": UIColor(named: "rock")!, "poison": UIColor(named: "poison")!, "psychic": UIColor(named: "psychic")!, "electric": UIColor(named: "electric")!, "ghost": UIColor(named: "ghost")!, "fighting": UIColor(named: "fighting")!, "bug": UIColor(named: "bug")!, "ice": UIColor(named: "ice")!,"dark": UIColor(named: "dark")!,"steel": UIColor(named: "steel")!, "dragon": UIColor(named: "dragon")!, "flying": UIColor(named: "flying")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,9 +79,13 @@ class DetailPokemonController: UIViewController {
         
         
         
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(buttonActivationNotification), name: NSNotification.Name("ButtonActivationNotification"), object: nil)
         
     }
+    @objc func buttonActivationNotification() {
+        btnTiposOutlet.isEnabled = true
+       }
+    
     
     
     @IBAction func btnTipos(_ sender: UIButton) {
@@ -99,7 +103,11 @@ class DetailPokemonController: UIViewController {
         //controlar que hacer antes de ir a la siguiente vista
         if segue.identifier == "DetalleGetSegue" {
             let formControl = segue.destination as! GetPokemonController
-            formControl.paginacion = self.elemento
+       
+                formControl.elemento = self.elemento
+            //formControl.btnBuscarOutlet!.isSelected = true
+       
+         
             
             
         }
