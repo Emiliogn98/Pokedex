@@ -114,7 +114,7 @@ class DetailPokemonController: UIViewController {
     }
         
         func updateUI(){
-            var pokemon = Pokemon()
+            
             
             
             PokemonViewModel.GetByName(namePokemon: self.pokemonName ) { result, error in
