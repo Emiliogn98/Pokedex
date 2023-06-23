@@ -76,7 +76,7 @@ class DetailPokemonController: UIViewController {
         fondoImagenes.layer.cornerRadius = 40
         fondoImagenes.layer.masksToBounds = true
         
-      
+        
         
         
         
@@ -84,104 +84,116 @@ class DetailPokemonController: UIViewController {
     
     
     @IBAction func btnTipos(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "DetalleGetSegue", sender: self)
         
     }
     
     @IBAction func btnTipos2(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "DetalleGetSegue", sender: self)
     }
-    
-    func updateUI(){
-        var pokemon = Pokemon()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //controlar que hacer antes de ir a la siguiente vista
+        if segue.identifier == "DetalleGetSegue" {
+            let formControl = segue.destination as! GetPokemonController
+           // formControl.paginacion = self.pokemonTypes[0].type!.name!
+            
+            
+        }
+    }
         
-        
-        PokemonViewModel.GetByName(namePokemon: self.pokemonName ) { result, error in
-            DispatchQueue.main.async{
-                if result! != nil {
-                    var pokemon = Pokemon()
-                    pokemon.id = result?.id
-                    pokemon.name = result?.name
-                    pokemon.height = result?.height
-                    pokemon.weight = result?.weight
-                    pokemon.sprites?.front_shiny = result?.sprites?.front_shiny
-                    pokemon.sprites?.front_shiny = result?.sprites?.front_default
-                    
-                    
-                    for objPoke in result!.stats!{
-                        let pokeStat = objPoke as Stats
-                        self.pokemonStats.append(pokeStat)
-                    }
-                    
-                    for objPoke in result!.types!{
-                        let pokeType = objPoke as! Types
-                        self.pokemonTypes.append(pokeType)
-                    }
-                    
-                    let imageURLString = "\(result!.sprites!.front_default!)"
-                    UIImage.loadImageFromURL(imageURLString) { [self] (image) in
-                        if let image = image {
-                            // La imagen se cargó exitosamente desde la URL
-                            self.imageView.image = image
-                            //  print(image)
-                            //   print("la imagen se cargo correcramente")
-                            
-                        } else {
-                            print("error al cargar la imagen")
+        func updateUI(){
+            var pokemon = Pokemon()
+            
+            
+            PokemonViewModel.GetByName(namePokemon: self.pokemonName ) { result, error in
+                DispatchQueue.main.async{
+                    if result! != nil {
+                        var pokemon = Pokemon()
+                        pokemon.id = result?.id
+                        pokemon.name = result?.name
+                        pokemon.height = result?.height
+                        pokemon.weight = result?.weight
+                        pokemon.sprites?.front_shiny = result?.sprites?.front_shiny
+                        pokemon.sprites?.front_shiny = result?.sprites?.front_default
+                        
+                        
+                        for objPoke in result!.stats!{
+                            let pokeStat = objPoke as Stats
+                            self.pokemonStats.append(pokeStat)
                         }
-                        let imageURLString = "\(result!.sprites!.front_shiny!)"
+                        
+                        for objPoke in result!.types!{
+                            let pokeType = objPoke as! Types
+                            self.pokemonTypes.append(pokeType)
+                        }
+                        
+                        let imageURLString = "\(result!.sprites!.front_default!)"
                         UIImage.loadImageFromURL(imageURLString) { [self] (image) in
                             if let image = image {
                                 // La imagen se cargó exitosamente desde la URL
-                                   self.imageViewShiny.image = image
+                                self.imageView.image = image
                                 //  print(image)
                                 //   print("la imagen se cargo correcramente")
                                 
                             } else {
                                 print("error al cargar la imagen")
                             }
-                            self.lblNombre.text = result?.name
-                            self.lblStats.text = "  \(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblStats1.text = "  \(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblStats2.text = "  \(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblStats3.text = "  \(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.lblTypes.text = "Tipo Principal: \(self.pokemonTypes[0].type!.name!)"
-                         //   self.lblTypes.text = "Tipo: \(self.pokemonTypes[1].type!.name!)"
-                           // self.lblTypes.text = "Tipo: \(self.pokemonTypes[2].type!.name!)"
-                            if let color = colors[self.pokemonTypes[0].type!.name!]{
-                                DispatchQueue.main.async {
-                                    self.ColorFondo.backgroundColor = color
-                                    self.view.backgroundColor = color
-                                    //self.view.backgroundColor = UIColor(named: "fondogris")
-                                    self.lblTypes.backgroundColor = color
-                                    self.btnTiposOutlet.tintColor = color
-                                    self.btnTiposOutlet.setTitle("\(self.pokemonTypes[0].type!.name!)", for: .normal)
-                                   
-                              
+                            let imageURLString = "\(result!.sprites!.front_shiny!)"
+                            UIImage.loadImageFromURL(imageURLString) { [self] (image) in
+                                if let image = image {
+                                    // La imagen se cargó exitosamente desde la URL
+                                    self.imageViewShiny.image = image
+                                    //  print(image)
+                                    //   print("la imagen se cargo correcramente")
+                                    
+                                } else {
+                                    print("error al cargar la imagen")
+                                }
+                                self.lblNombre.text = result?.name
+                                self.lblStats.text = "  \(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                                self.lblStats1.text = "  \(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                                self.lblStats2.text = "  \(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                                self.lblStats3.text = "  \(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                                self.lblTypes.text = "Tipo Principal: \(self.pokemonTypes[0].type!.name!)"
+                                //   self.lblTypes.text = "Tipo: \(self.pokemonTypes[1].type!.name!)"
+                                // self.lblTypes.text = "Tipo: \(self.pokemonTypes[2].type!.name!)"
+                                if let color = colors[self.pokemonTypes[0].type!.name!]{
+                                    DispatchQueue.main.async {
+                                        self.ColorFondo.backgroundColor = color
+                                        self.view.backgroundColor = color
+                                        //self.view.backgroundColor = UIColor(named: "fondogris")
+                                        self.lblTypes.backgroundColor = color
+                                        self.btnTiposOutlet.tintColor = color
+                                        self.btnTiposOutlet.setTitle("\(self.pokemonTypes[0].type!.name!)", for: .normal)
+                                        
+                                        
+                                        
+                                    }
+                                }
+                                if self.pokemonTypes.count >= 2{
+                                    print("entro por que tiene 2 elementos")
+                                    self.btnTipos2Outlet.isHidden = false
+                                    if let color2 = colors[self.pokemonTypes[1].type!.name!]{
+                                        
+                                        self.btnTipos2Outlet.tintColor = color2
+                                        self.btnTipos2Outlet.setTitle("\(self.pokemonTypes[1].type!.name!)", for: .normal)
+                                        
+                                    }
+                                }
+                                else{
+                                    print("entre aqui por que tengo 1 elemento")
+                                    self.btnTipos2Outlet.isHidden = true
                                     
                                 }
                             }
-                            if self.pokemonTypes.count >= 2{
-                                print("entro por que tiene 2 elementos")
-                                self.btnTipos2Outlet.isHidden = false
-                                if let color2 = colors[self.pokemonTypes[1].type!.name!]{
-                                    
-                                    self.btnTipos2Outlet.tintColor = color2
-                                    self.btnTipos2Outlet.setTitle("\(self.pokemonTypes[1].type!.name!)", for: .normal)
-                                
-                            }
-                            }
-                            else{
-                                print("entre aqui por que tengo 1 elemento")
-                                self.btnTipos2Outlet.isHidden = true
-                               
-                                }
                         }
+                        
                     }
-                    
                 }
             }
         }
     }
-}
+    
 
 
 

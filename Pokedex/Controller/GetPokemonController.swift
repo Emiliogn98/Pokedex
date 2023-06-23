@@ -38,6 +38,8 @@ class GetPokemonController: UIViewController {
     }
     //Action
     
+    
+    
     @IBAction func btnBuscar(_ sender: UIButton) {
         self.pokemonName = ""
         self.pokemonName = txtBuscar.text!
@@ -121,7 +123,7 @@ class GetPokemonController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-       // updateUI()
+        updateUI()
     }
     func updateUI(){
         self.pokemonsList.removeAll()
