@@ -24,7 +24,7 @@ class DetailPokemonProgramaticoController: UIViewController {
     private let onboardingImageViewDefault: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-      //  imageView.image = UIImage(named: "pokeball1")
+        imageView.image = UIImage(named: "pokeball")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = UIColor(named: "fondogris")
         imageView.layer.cornerRadius = 15
@@ -47,10 +47,10 @@ class DetailPokemonProgramaticoController: UIViewController {
         let lblNombre = UILabel()
         lblNombre.numberOfLines = 0
         lblNombre.textAlignment = .center
-        lblNombre.text = "nombre"
+        lblNombre.text = "Elemento"
         lblNombre.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         lblNombre.translatesAutoresizingMaskIntoConstraints = false
-        lblNombre.backgroundColor = UIColor.red
+       // lblNombre.backgroundColor = UIColor.red
         lblNombre.layer.cornerRadius = 15
         lblNombre.layer.masksToBounds = true
         return lblNombre
@@ -73,7 +73,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblImagenShiny.text = "Shiny"
         lblImagenShiny.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
         lblImagenShiny.translatesAutoresizingMaskIntoConstraints = false
-        lblImagenShiny.backgroundColor = UIColor.red
+      //  lblImagenShiny.backgroundColor = UIColor.red
         lblImagenShiny.layer.cornerRadius = 15
         lblImagenShiny.layer.masksToBounds = true
         return lblImagenShiny
@@ -88,7 +88,19 @@ class DetailPokemonProgramaticoController: UIViewController {
         btnTipos.addTarget(self, action: #selector(showMessage), for: .touchUpOutside)
         btnTipos.configuration = config
         btnTipos.translatesAutoresizingMaskIntoConstraints = false
-        btnTipos.backgroundColor = UIColor.red
+       // btnTipos.backgroundColor = UIColor.red
+        return btnTipos
+    }()
+    private lazy var onboardBtnTipos2 : UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.title = "TIPO"
+        
+
+        let btnTipos = UIButton(type: .system)
+        btnTipos.addTarget(self, action: #selector(showMessage2), for: .touchUpOutside)
+        btnTipos.configuration = config
+        btnTipos.translatesAutoresizingMaskIntoConstraints = false
+        //btnTipos.backgroundColor = UIColor.red
         return btnTipos
     }()
     
@@ -99,7 +111,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblNombrePokemon.text = "nombre"
         lblNombrePokemon.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         lblNombrePokemon.translatesAutoresizingMaskIntoConstraints = false
-        lblNombrePokemon.backgroundColor = UIColor.red
+      //  lblNombrePokemon.backgroundColor = UIColor.red
         lblNombrePokemon.layer.cornerRadius = 15
         lblNombrePokemon.layer.masksToBounds = true
         return lblNombrePokemon
@@ -185,6 +197,18 @@ class DetailPokemonProgramaticoController: UIViewController {
        // imageView.backgroundColor = UIColor.red
         return imageView
     }()
+    private let textLabelBusqueda : UILabel = {
+        let lblBusqueda = UILabel()
+        lblBusqueda.numberOfLines = 0
+        lblBusqueda.textAlignment = .center
+        lblBusqueda.text = "Busqueda"
+        lblBusqueda.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        lblBusqueda.translatesAutoresizingMaskIntoConstraints = false
+        lblBusqueda.backgroundColor = UIColor(named: "fondogris")
+        lblBusqueda.layer.cornerRadius = 15
+        lblBusqueda.layer.masksToBounds = true
+        return lblBusqueda
+    }()
 
             /* Elementos */
     override func viewDidLoad() {
@@ -192,31 +216,22 @@ class DetailPokemonProgramaticoController: UIViewController {
             /* Agregamos subvistas a la vista principal*/
         view.backgroundColor = .white
         [textLabelNombreElemento,onboardingImageViewDefault,onboardBtnTipos,textLabelImagenDefault,textLabelImagenShiny,onboardingImageViewShiny,
-         textLabelNombrePokemon,textLabelStatHP,onboardingImageViewStatHP,textLabelStatDefensa,onboardingImageViewStatDefensa,textLabelStatAtaque,onboardingImageViewStatAtaque,textLabelStatEspecial,onboardingImageViewStatEspecial].forEach(view.addSubview)
+         textLabelNombrePokemon,textLabelStatHP,onboardingImageViewStatHP,textLabelStatDefensa,onboardingImageViewStatDefensa,textLabelStatAtaque,onboardingImageViewStatAtaque,textLabelStatEspecial,onboardingImageViewStatEspecial,onboardBtnTipos2,textLabelBusqueda].forEach(view.addSubview)
         
         NSLayoutConstraint.activate([
             /* label de elemento*/
             textLabelNombreElemento.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 10),
             textLabelNombreElemento.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
             textLabelNombreElemento.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
-            /* Boton de elementos 1*/
-            onboardBtnTipos.topAnchor.constraint(equalTo: textLabelStatEspecial.bottomAnchor, constant: 40),
-            onboardBtnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
-            onboardBtnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
-            onboardBtnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -170),
-            /* Boton de elementos 2*/
-            onboardBtnTipos.topAnchor.constraint(equalTo: textLabelNombreElemento.bottomAnchor, constant: 3),
-            onboardBtnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
-            onboardBtnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
-            onboardBtnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -660),
+           
             /* label Imagen Pokemon normal*/
-            textLabelImagenDefault.topAnchor.constraint(equalTo: onboardBtnTipos.bottomAnchor,constant: 5),
+            textLabelImagenDefault.topAnchor.constraint(equalTo: textLabelNombreElemento.bottomAnchor,constant: 25),
             textLabelImagenDefault.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
             textLabelImagenDefault.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor,constant: -180),
             textLabelImagenDefault.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -630),
             
             /* label imagen Pokemon Shiny*/
-            textLabelImagenShiny.topAnchor.constraint(equalTo: onboardBtnTipos.bottomAnchor,constant: 5),
+            textLabelImagenShiny.topAnchor.constraint(equalTo: textLabelNombreElemento.bottomAnchor,constant: 25),
             textLabelImagenShiny.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor,constant: -20),
             textLabelImagenShiny.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor,constant: 180),
             textLabelImagenShiny.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -630),
@@ -235,18 +250,18 @@ class DetailPokemonProgramaticoController: UIViewController {
             onboardingImageViewShiny.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -450),
             
             /* label de nombre pokemon*/
-            textLabelNombrePokemon.topAnchor.constraint(equalTo: onboardingImageViewShiny.bottomAnchor, constant: 10),
+            textLabelNombrePokemon.topAnchor.constraint(equalTo: onboardingImageViewShiny.bottomAnchor, constant: 20),
             textLabelNombrePokemon.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
             textLabelNombrePokemon.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
-            textLabelNombrePokemon.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -410),
+            textLabelNombrePokemon.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -400),
             /* label de  statHP*/
-            textLabelStatHP.topAnchor.constraint(equalTo: textLabelNombrePokemon.bottomAnchor, constant: 30),
+            textLabelStatHP.topAnchor.constraint(equalTo: textLabelNombrePokemon.bottomAnchor, constant: 20),
             textLabelStatHP.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
             textLabelStatHP.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 80),
             textLabelStatHP.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -350),
             
             /* imagen de stat hp*/
-            onboardingImageViewStatHP.topAnchor.constraint(equalTo: textLabelNombrePokemon.bottomAnchor, constant: 30 ),
+            onboardingImageViewStatHP.topAnchor.constraint(equalTo: textLabelNombrePokemon.bottomAnchor, constant: 15 ),
             onboardingImageViewStatHP.rightAnchor.constraint(equalTo: textLabelStatHP.leftAnchor, constant: -20 ),
             onboardingImageViewStatHP.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
             onboardingImageViewStatHP.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -350),
@@ -281,6 +296,22 @@ class DetailPokemonProgramaticoController: UIViewController {
             onboardingImageViewStatEspecial.rightAnchor.constraint(equalTo: textLabelStatEspecial.leftAnchor, constant: -20 ),
             onboardingImageViewStatEspecial.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
             onboardingImageViewStatEspecial.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -215),
+            /* label de busqueda*/
+            textLabelBusqueda.topAnchor.constraint(equalTo: textLabelStatEspecial.bottomAnchor, constant: 15),
+            textLabelBusqueda.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
+            textLabelBusqueda.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
+            textLabelBusqueda.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -170),
+            /* Boton de elementos 1*/
+            onboardBtnTipos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 20),
+            onboardBtnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -100),
+            onboardBtnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 100),
+            onboardBtnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -100),
+            /* Boton de elementos 2*/
+            onboardBtnTipos2.topAnchor.constraint(equalTo: onboardBtnTipos.bottomAnchor, constant: 20),
+            onboardBtnTipos2.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -100),
+            onboardBtnTipos2.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 100),
+            onboardBtnTipos2.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -90),
+
          
             
             
@@ -294,7 +325,25 @@ class DetailPokemonProgramaticoController: UIViewController {
     }
     
     @objc func showMessage(){
-        print("prueba boton")
+        self.elemento = self.pokemonTypes[0].type!.name!
+        self.performSegue(withIdentifier: "DetalleGetSegue", sender: self)
+    }
+    @objc func showMessage2(){
+        self.elemento = self.pokemonTypes[0].type!.name!
+        self.performSegue(withIdentifier: "DetalleGetSegue", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //controlar que hacer antes de ir a la siguiente vista
+        if segue.identifier == "DetalleGetSegue" {
+            let formControl = segue.destination as! GetPokemonController
+       
+                formControl.elemento = self.elemento
+            //formControl.btnBuscarOutlet!.isSelected = true
+       
+         
+            
+            
+        }
     }
     
     func updateUI(){
@@ -361,6 +410,7 @@ class DetailPokemonProgramaticoController: UIViewController {
                                     self.textLabelNombrePokemon.backgroundColor = color
                                     self.textLabelImagenDefault.backgroundColor = color
                                     self.textLabelImagenShiny.backgroundColor = color
+                                    self.textLabelBusqueda.backgroundColor = color
                                     self.onboardBtnTipos.tintColor = color
                                     self.onboardBtnTipos.setTitle("\(self.pokemonTypes[0].type!.name!)", for: .normal)
                                     
@@ -368,21 +418,21 @@ class DetailPokemonProgramaticoController: UIViewController {
                                     
                                 }
                             }
-//                            if self.pokemonTypes.count >= 2{
-//                                print("entro por que tiene 2 elementos")
-//                                self.btnTipos2Outlet.isHidden = false
-//                                if let color2 = colors[self.pokemonTypes[1].type!.name!]{
-//
-//                                    self.btnTipos2Outlet.tintColor = color2
-//                                    self.btnTipos2Outlet.setTitle("\(self.pokemonTypes[1].type!.name!)", for: .normal)
-//
-//                                }
-//                            }
-//                            else{
-//                                print("entre aqui por que tengo 1 elemento")
-//                                self.btnTipos2Outlet.isHidden = true
-//
-//                            }
+                            if self.pokemonTypes.count >= 2{
+                                print("entro por que tiene 2 elementos")
+                                self.onboardBtnTipos2.isHidden = false
+                                if let color2 = colors[self.pokemonTypes[1].type!.name!]{
+
+                                    self.onboardBtnTipos2.tintColor = color2
+                                    self.onboardBtnTipos2.setTitle("\(self.pokemonTypes[1].type!.name!)", for: .normal)
+
+                                }
+                            }
+                            else{
+                                print("entre aqui por que tengo 1 elemento")
+                                self.onboardBtnTipos2.isHidden = true
+
+                            }
                         }
                      }
                     
