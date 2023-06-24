@@ -302,7 +302,7 @@ class DetailPokemonProgramaticoController: UIViewController {
             textLabelBusqueda.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
             textLabelBusqueda.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -170),
             /* Boton de elementos 1*/
-            onboardBtnTipos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 20),
+            onboardBtnTipos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 40),
             onboardBtnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -100),
             onboardBtnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 100),
             onboardBtnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -100),
@@ -310,7 +310,7 @@ class DetailPokemonProgramaticoController: UIViewController {
             onboardBtnTipos2.topAnchor.constraint(equalTo: onboardBtnTipos.bottomAnchor, constant: 20),
             onboardBtnTipos2.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -100),
             onboardBtnTipos2.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 100),
-            onboardBtnTipos2.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -90),
+            onboardBtnTipos2.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -50),
 
          
             
