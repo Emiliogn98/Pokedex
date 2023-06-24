@@ -417,6 +417,7 @@ class DetailPokemonProgramaticoController: UIViewController {
                                     self.textLabelBusqueda.backgroundColor = color
                                     self.btnTipos.tintColor = color
                                     self.btnTipos.setTitle("\(self.pokemonTypes[0].type!.name!)", for: .normal)
+                           
                                     
                                     
                                     
