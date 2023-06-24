@@ -9,10 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Pokemon-->
         <scene sceneID="cFf-Xr-7Di">
             <objects>
                 <navigationController id="j4t-ju-SwG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pokemon" image="fossil.shell" catalog="system" id="p5f-ER-RKy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hzT-BC-kqy">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -315,6 +316,20 @@
             </objects>
             <point key="canvasLocation" x="1256" y="265"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="8tM-65-Kxa">
+            <objects>
+                <tabBarController id="5hn-Sh-WF9" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="C0h-3t-ghZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QaE-X8-tnn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1952" y="-39"/>
+        </scene>
         <!--Detail Pokemon Programatico Controller-->
         <scene sceneID="J0A-pA-zPd">
             <objects>
@@ -342,6 +357,7 @@
         <image name="arrow.left" catalog="system" width="128" height="95"/>
         <image name="arrow.right" catalog="system" width="128" height="95"/>
         <image name="defense" width="190" height="230"/>
+        <image name="fossil.shell" catalog="system" width="128" height="100"/>
         <image name="heart" width="256" height="256"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="pokeball1" width="256" height="256"/>
