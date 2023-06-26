@@ -41,8 +41,6 @@ class DetailPokemonProgramaticoController: UIViewController {
         imageView.layer.masksToBounds = true
         return imageView
     }()
-    
-    
     private let textLabelNombreElemento : UILabel = {
         let lblNombre = UILabel()
         lblNombre.numberOfLines = 0
@@ -78,28 +76,25 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblImagenShiny.layer.masksToBounds = true
         return lblImagenShiny
     }()
-    
     private lazy var btnTipos : UIButton = {
         var config = UIButton.Configuration.filled()
         config.title = "TIPO"
-        
-        
         let btnTipos = UIButton(type: .system)
         btnTipos.addTarget(self, action: #selector(showMessage), for: .touchUpInside)
         btnTipos.configuration = config
         btnTipos.translatesAutoresizingMaskIntoConstraints = false
+        btnTipos.setTitleColor(UIColor.black, for: .normal)
         // btnTipos.backgroundColor = UIColor.red
         return btnTipos
     }()
     private lazy var btnTipos2 : UIButton = {
         var config = UIButton.Configuration.filled()
         config.title = "TIPO"
-        
-        
         let btnTipos2 = UIButton(type: .system)
         btnTipos2.addTarget(self, action: #selector(showMessage2), for: .touchUpInside)
         btnTipos2.configuration = config
         btnTipos2.translatesAutoresizingMaskIntoConstraints = false
+        btnTipos2.setTitleColor(UIColor.black, for: .normal)
         //btnTipos.backgroundColor = UIColor.red
         return btnTipos2
     }()
@@ -218,14 +213,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         [textLabelNombreElemento,ImageViewDefault,btnTipos,textLabelImagenDefault,textLabelImagenShiny,ImageViewShiny,
          textLabelNombrePokemon,textLabelStatHP,onboardingImageViewStatHP,textLabelStatDefensa,onboardingImageViewStatDefensa,textLabelStatAtaque,onboardingImageViewStatAtaque,textLabelStatEspecial,onboardingImageViewStatEspecial,btnTipos2,textLabelBusqueda].forEach(view.addSubview)
         
-        
-        
-        
-        
-        
-        
-        
-        
+        /* constraints */
         NSLayoutConstraint.activate([
             /* label de elemento*/
             textLabelNombreElemento.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 10),
@@ -351,17 +339,11 @@ class DetailPokemonProgramaticoController: UIViewController {
             
             formControl.elemento = self.elemento
             //formControl.btnBuscarOutlet!.isSelected = true
-            
-            
-            
-            
         }
     }
     
     func updateUI(){
-        
-        
-        
+    
         PokemonViewModel.GetByName(namePokemon: self.pokemonName ) { result, error in
             DispatchQueue.main.async{
                 if result! != nil {
@@ -426,9 +408,6 @@ class DetailPokemonProgramaticoController: UIViewController {
                                     self.btnTipos.tintColor = color
                                     self.btnTipos.setTitle("\(self.pokemonTypes[0].type!.name!)", for: .normal)
                            
-                                    
-                                    
-                                    
                                 }
                             }
                             if self.pokemonTypes.count >= 2{

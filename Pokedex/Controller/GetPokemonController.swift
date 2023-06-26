@@ -20,12 +20,7 @@ class GetPokemonController: UIViewController {
     var color = UIColor.red.cgColor
     var color2 = UIColor.white.cgColor
     var elemento : String = ""
-    let colors: [String: UIColor] = ["normal": UIColor(named: "normal")!, "water": UIColor(named: "water")!,"fire": UIColor(named: "fire")!,
-                                     "grass": UIColor(named: "grass")!, "ground": UIColor(named: "ground")!, "rock": UIColor(named: "rock")!, "poison": UIColor(named: "poison")!, "psychic": UIColor(named: "psychic")!, "electric": UIColor(named: "electric")!, "ghost": UIColor(named: "ghost")!, "fighting": UIColor(named: "fighting")!, "bug": UIColor(named: "bug")!, "ice": UIColor(named: "ice")!,"dark": UIColor(named: "dark")!,"steel": UIColor(named: "steel")!, "dragon": UIColor(named: "dragon")!, "flying": UIColor(named: "flying")!]
-    
-    
     var result = Tipos()
-    
     //Outlet
     
     @IBOutlet weak var btnBuscarOutlet: UIButton!
@@ -35,16 +30,10 @@ class GetPokemonController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.register(UINib(nibName: "PokemonCell", bundle: nil), forCellWithReuseIdentifier: "PokemonCell")
         collectionView.dataSource = self
         collectionView.delegate = self
         updateUI()
-        
-        
-        
-        
-        
     }
     //Action
     func GetElement() {
@@ -64,7 +53,6 @@ class GetPokemonController: UIViewController {
                     }
                     
                 }else {
-                    print("No existe esa categoria")//podria ser una alerta que no hay categoria
                     DispatchQueue.main.async {
                         let alert = UIAlertController(title: "Mensaje", message: "No existe ese nombre,id o elemento.Tambien puede estar mal escrito.", preferredStyle: .alert)
                         let action = UIAlertAction(title: "Aceptar", style: .default)
@@ -88,8 +76,7 @@ class GetPokemonController: UIViewController {
         self.pokemonName = txtBuscar.text!
         self.elemento = ""
         self.elemento = txtBuscar.text!
-        // self.id = txtBuscar.text!
-        print(self.pokemonName)
+        //  print(self.pokemonName)
         guard txtBuscar.text != "" else{
             
             txtBuscar.layer.borderColor = color
@@ -114,36 +101,7 @@ class GetPokemonController: UIViewController {
             }
             
             else {
-                
-                PokemonViewModel.GetByElemento(elemento: self.pokemonName) { result, error in
-                    self.pokemonsList.removeAll()
-                    if let resultSource = result {
-                        self.result = resultSource
-                        for ObjPokemon in result!.pokemon!{
-                            var pokemonElement = Results()
-                            pokemonElement.name = ObjPokemon.pokemon.name
-                            pokemonElement.url = ObjPokemon.pokemon.url
-                            self.pokemonsList.append(pokemonElement)
-                        }
-                        DispatchQueue.main.async {
-                            self.collectionView.reloadData()
-                        }
-                        
-                    }else {
-                        print("No existe esa categoria")//podria ser una alerta que no hay categoria
-                        DispatchQueue.main.async {
-                            let alert = UIAlertController(title: "Mensaje", message: "No existe ese nombre,id o elemento.Tambien puede estar mal escrito.", preferredStyle: .alert)
-                            let action = UIAlertAction(title: "Aceptar", style: .default)
-                            alert.addAction(action)
-                            
-                            self.present(alert, animated: true)
-                            self.pokemonsList.removeAll()
-                            self.collectionView.reloadData()
-                            
-                        }
-                    }
-                    
-                }
+                self.GetElement()
                 
             }
         }
@@ -171,9 +129,6 @@ class GetPokemonController: UIViewController {
         //        NotificationCenter.default.post(name: NSNotification.Name("ButtonActivationNotification"), object: nil)
         //        self.btnBuscarOutlet.isEnabled  = true
         
-        
-        
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         GetElement()
@@ -188,17 +143,12 @@ class GetPokemonController: UIViewController {
                     self.previusPaginacion = result?.previous ?? nil
                     self.nextPaginacion = result!.next!
                     for objPokemon in result!.results {
-                        
-                        
-                        
                         self.pokemonsList.append(objPokemon)
-                        
                     }
                     self.collectionView.reloadData()
                     // print(self.pokemonName)
                 }
                 self.collectionView.reloadData()
-                
             }
         }
     }
@@ -212,17 +162,12 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCell", for: indexPath) as! PokemonCell
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
-        
-        
         self.text = pokemonsList[indexPath.row].url!
         
         let textId = self.text.split(separator: "/")
         // print(textId.last!)
         let imageURLString = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(textId.last!).png"
         self.url = imageURLString
-        
-        
-        
         UIImage.loadImageFromURL(imageURLString) { (image) in
             if let image = image {
                 // La imagen se cargó exitosamente desde la URL
@@ -241,11 +186,7 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
         //        cell.lblText.text = pokemonsList[indexPath.row].url
         //  cell.btnPokeball.setImage(UIImage(named: "pokeball1"), for: .normal)
         cell.imageViewPokeball.image = UIImage(named: "pokeball")
-        
-        
-        
-        
-        
+
         return cell
     }
     
@@ -270,15 +211,8 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
             formControl.pokemonName = self.pokemonName
             formControl.url = self.url
             //formControl.id = self.id
-            
-            
         }
-        
     }
-    
-    
-    
-    
 }
 
 // MARK: UIImage
