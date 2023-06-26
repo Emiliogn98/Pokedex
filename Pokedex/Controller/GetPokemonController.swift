@@ -20,6 +20,8 @@ class GetPokemonController: UIViewController {
     var color = UIColor.red.cgColor
     var color2 = UIColor.white.cgColor
     var elemento : String = ""
+    let colors: [String: UIColor] = ["normal": UIColor(named: "normal")!, "water": UIColor(named: "water")!,"fire": UIColor(named: "fire")!,
+                                     "grass": UIColor(named: "grass")!, "ground": UIColor(named: "ground")!, "rock": UIColor(named: "rock")!, "poison": UIColor(named: "poison")!, "psychic": UIColor(named: "psychic")!, "electric": UIColor(named: "electric")!, "ghost": UIColor(named: "ghost")!, "fighting": UIColor(named: "fighting")!, "bug": UIColor(named: "bug")!, "ice": UIColor(named: "ice")!,"dark": UIColor(named: "dark")!,"steel": UIColor(named: "steel")!, "dragon": UIColor(named: "dragon")!, "flying": UIColor(named: "flying")!]
     
     
     var result = Tipos()
@@ -84,6 +86,8 @@ class GetPokemonController: UIViewController {
     @IBAction func btnBuscar(_ sender: UIButton) {
         self.pokemonName = ""
         self.pokemonName = txtBuscar.text!
+        self.elemento = ""
+        self.elemento = txtBuscar.text!
         // self.id = txtBuscar.text!
         print(self.pokemonName)
         guard txtBuscar.text != "" else{

@@ -48,7 +48,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblNombre.numberOfLines = 0
         lblNombre.textAlignment = .center
         lblNombre.text = "Elemento"
-        lblNombre.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        lblNombre.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
         lblNombre.translatesAutoresizingMaskIntoConstraints = false
         // lblNombre.backgroundColor = UIColor.red
         lblNombre.layer.cornerRadius = 15
@@ -60,7 +60,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblImagenDefault.numberOfLines = 0
         lblImagenDefault.textAlignment = .center
         lblImagenDefault.text = "Normal"
-        lblImagenDefault.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
+        lblImagenDefault.font = UIFont(name: "Arial Rounded MT Bold", size: 15)
         lblImagenDefault.translatesAutoresizingMaskIntoConstraints = false
         lblImagenDefault.layer.cornerRadius = 15
         lblImagenDefault.layer.masksToBounds = true
@@ -71,7 +71,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblImagenShiny.numberOfLines = 0
         lblImagenShiny.textAlignment = .center
         lblImagenShiny.text = "Shiny"
-        lblImagenShiny.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
+        lblImagenShiny.font = UIFont(name: "Arial Rounded MT Bold", size: 15)
         lblImagenShiny.translatesAutoresizingMaskIntoConstraints = false
         //  lblImagenShiny.backgroundColor = UIColor.red
         lblImagenShiny.layer.cornerRadius = 15
@@ -109,7 +109,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblNombrePokemon.numberOfLines = 0
         lblNombrePokemon.textAlignment = .center
         lblNombrePokemon.text = "nombre"
-        lblNombrePokemon.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        lblNombrePokemon.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
         lblNombrePokemon.translatesAutoresizingMaskIntoConstraints = false
         //  lblNombrePokemon.backgroundColor = UIColor.red
         lblNombrePokemon.layer.cornerRadius = 15
@@ -121,7 +121,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblStatHP.numberOfLines = 0
         lblStatHP.textAlignment = .center
         lblStatHP.text = "HP"
-        lblStatHP.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        lblStatHP.font = UIFont(name: "Arial Rounded MT Bold", size: 15)
         lblStatHP.translatesAutoresizingMaskIntoConstraints = false
         lblStatHP.backgroundColor = UIColor(named: "fondogris")
         lblStatHP.layer.cornerRadius = 15
@@ -142,7 +142,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblStatDefensa.numberOfLines = 0
         lblStatDefensa.textAlignment = .center
         lblStatDefensa.text = "Defensa"
-        lblStatDefensa.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        lblStatDefensa.font = UIFont(name: "Arial Rounded MT Bold", size: 15)
         lblStatDefensa.translatesAutoresizingMaskIntoConstraints = false
         lblStatDefensa.backgroundColor = UIColor(named: "fondogris")
         lblStatDefensa.layer.cornerRadius = 15
@@ -162,7 +162,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblStatAtaque.numberOfLines = 0
         lblStatAtaque.textAlignment = .center
         lblStatAtaque.text = "Ataque"
-        lblStatAtaque.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        lblStatAtaque.font = UIFont(name: "Arial Rounded MT Bold", size: 15)
         lblStatAtaque.translatesAutoresizingMaskIntoConstraints = false
         lblStatAtaque.backgroundColor = UIColor(named: "fondogris")
         lblStatAtaque.layer.cornerRadius = 15
@@ -182,7 +182,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblStatAtaque.numberOfLines = 0
         lblStatAtaque.textAlignment = .center
         lblStatAtaque.text = "special"
-        lblStatAtaque.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        lblStatAtaque.font = UIFont(name: "Arial Rounded MT Bold", size: 15)
         lblStatAtaque.translatesAutoresizingMaskIntoConstraints = false
         lblStatAtaque.backgroundColor = UIColor(named: "fondogris")
         lblStatAtaque.layer.cornerRadius = 15
@@ -202,7 +202,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblBusqueda.numberOfLines = 0
         lblBusqueda.textAlignment = .center
         lblBusqueda.text = "Búsqueda"
-        lblBusqueda.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        lblBusqueda.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
         lblBusqueda.translatesAutoresizingMaskIntoConstraints = false
         lblBusqueda.backgroundColor = UIColor(named: "fondogris")
         lblBusqueda.layer.cornerRadius = 15
@@ -311,13 +311,13 @@ class DetailPokemonProgramaticoController: UIViewController {
             textLabelBusqueda.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -170),
             /* Boton de elementos 1*/
             btnTipos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 40),
-            btnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -100),
-            btnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 100),
+            btnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -120),
+            btnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 120),
             btnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -100),
             /* Boton de elementos 2*/
             btnTipos2.topAnchor.constraint(equalTo: btnTipos.bottomAnchor, constant: 20),
-            btnTipos2.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -100),
-            btnTipos2.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 100),
+            btnTipos2.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -120),
+            btnTipos2.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 120),
             btnTipos2.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -50),
             
             
