@@ -206,7 +206,7 @@ class DetailPokemonProgramaticoController: UIViewController {
     }()
     private lazy var btnFavoritos : UIButton = {
         var config = UIButton.Configuration.borderless()
-        config.baseBackgroundColor = .black
+        //config.baseBackgroundColor = .black
       
         //config.title = "Favoritos"
         let btnFavoritos = UIButton(type: .system)
