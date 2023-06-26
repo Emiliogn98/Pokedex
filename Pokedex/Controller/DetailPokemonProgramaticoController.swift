@@ -201,7 +201,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         let lblBusqueda = UILabel()
         lblBusqueda.numberOfLines = 0
         lblBusqueda.textAlignment = .center
-        lblBusqueda.text = "Busqueda"
+        lblBusqueda.text = "Búsqueda"
         lblBusqueda.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         lblBusqueda.translatesAutoresizingMaskIntoConstraints = false
         lblBusqueda.backgroundColor = UIColor(named: "fondogris")
@@ -217,6 +217,14 @@ class DetailPokemonProgramaticoController: UIViewController {
         view.backgroundColor = .white
         [textLabelNombreElemento,ImageViewDefault,btnTipos,textLabelImagenDefault,textLabelImagenShiny,ImageViewShiny,
          textLabelNombrePokemon,textLabelStatHP,onboardingImageViewStatHP,textLabelStatDefensa,onboardingImageViewStatDefensa,textLabelStatAtaque,onboardingImageViewStatAtaque,textLabelStatEspecial,onboardingImageViewStatEspecial,btnTipos2,textLabelBusqueda].forEach(view.addSubview)
+        
+        
+        
+        
+        
+        
+        
+        
         
         NSLayoutConstraint.activate([
             /* label de elemento*/
@@ -398,12 +406,12 @@ class DetailPokemonProgramaticoController: UIViewController {
                             } else {
                                 print("error al cargar la imagen")
                             }
-                            self.textLabelNombrePokemon.text = result?.name
+                            self.textLabelNombrePokemon.text = "Pokémon: \(result!.name!)"
                             self.textLabelStatHP.text = "  \(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.textLabelStatDefensa.text = "  \(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.textLabelStatAtaque.text = "  \(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
                             self.textLabelStatEspecial.text = "  \(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.textLabelNombreElemento.text = "\(self.pokemonTypes[0].type!.name!)"
+                            self.textLabelNombreElemento.text = "Tipo: \(self.pokemonTypes[0].type!.name!)"
                             
                             
                             if let color = colors[self.pokemonTypes[0].type!.name!]{
