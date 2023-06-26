@@ -333,7 +333,7 @@ class DetailPokemonProgramaticoController: UIViewController {
     @objc func showMessage2(){
         
         print("aprete el boton1")
-        self.elemento = self.pokemonTypes[0].type!.name!
+        self.elemento = self.pokemonTypes[1].type!.name!
         self.performSegue(withIdentifier: "DetalleGetSegue", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
