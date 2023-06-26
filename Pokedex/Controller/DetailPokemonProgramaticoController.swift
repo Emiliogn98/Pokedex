@@ -204,6 +204,22 @@ class DetailPokemonProgramaticoController: UIViewController {
         lblBusqueda.layer.masksToBounds = true
         return lblBusqueda
     }()
+    private lazy var btnFavoritos : UIButton = {
+        var config = UIButton.Configuration.borderless()
+        config.baseBackgroundColor = .black
+      
+        //config.title = "Favoritos"
+        let btnFavoritos = UIButton(type: .system)
+        btnFavoritos.addTarget(self, action: #selector(favoritos), for: .touchUpInside)
+        btnFavoritos.isSelected = false
+        btnFavoritos.configuration = config
+        btnFavoritos.setImage(UIImage.init(systemName: "heart"), for: .normal)
+        btnFavoritos.translatesAutoresizingMaskIntoConstraints = false
+        btnFavoritos.setTitleColor(UIColor.black, for: .normal)
+     
+       
+        return btnFavoritos
+    }()
     
     /* Elementos */
     override func viewDidLoad() {
@@ -211,7 +227,8 @@ class DetailPokemonProgramaticoController: UIViewController {
         /* Agregamos subvistas a la vista principal*/
         view.backgroundColor = .white
         [textLabelNombreElemento,ImageViewDefault,btnTipos,textLabelImagenDefault,textLabelImagenShiny,ImageViewShiny,
-         textLabelNombrePokemon,textLabelStatHP,onboardingImageViewStatHP,textLabelStatDefensa,onboardingImageViewStatDefensa,textLabelStatAtaque,onboardingImageViewStatAtaque,textLabelStatEspecial,onboardingImageViewStatEspecial,btnTipos2,textLabelBusqueda].forEach(view.addSubview)
+         textLabelNombrePokemon,textLabelStatHP,onboardingImageViewStatHP,textLabelStatDefensa,onboardingImageViewStatDefensa,textLabelStatAtaque,onboardingImageViewStatAtaque,textLabelStatEspecial,onboardingImageViewStatEspecial,btnTipos2,textLabelBusqueda,btnFavoritos].forEach(view.addSubview)
+        view.bringSubviewToFront(btnFavoritos)
         
         /* constraints */
         NSLayoutConstraint.activate([
@@ -307,6 +324,13 @@ class DetailPokemonProgramaticoController: UIViewController {
             btnTipos2.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -120),
             btnTipos2.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 120),
             btnTipos2.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -50),
+            /* boton de Favoritos*/
+           // btnFavoritos.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 12),
+            btnFavoritos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 12),
+            //btnFavoritos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -710),
+            btnFavoritos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -70),
+            btnFavoritos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
+            btnFavoritos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 250)
             
             
             
@@ -331,6 +355,26 @@ class DetailPokemonProgramaticoController: UIViewController {
         print("aprete el boton1")
         self.elemento = self.pokemonTypes[1].type!.name!
         self.performSegue(withIdentifier: "DetalleGetSegue", sender: self)
+    }
+    @objc func favoritos(){
+     
+        btnFavoritos.isSelected = !btnFavoritos.isSelected
+        
+        if btnFavoritos.isSelected {
+            print("aprete boton favoritos")
+            btnFavoritos.setImage(UIImage.init(systemName: "heart.fill"), for: .normal)
+            let alert = UIAlertController(title: "Mensaje", message: "Se agrego a Favoritos el Pokemon \(self.pokemonName)!.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Aceptar", style: .default)
+            alert.addAction(action)
+            
+            self.present(alert, animated: true)
+        } else {
+            btnFavoritos.setImage(UIImage.init(systemName: "heart"), for: .normal)
+            
+        }
+        
+        
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //controlar que hacer antes de ir a la siguiente vista
@@ -388,11 +432,11 @@ class DetailPokemonProgramaticoController: UIViewController {
                             } else {
                                 print("error al cargar la imagen")
                             }
-                            self.textLabelNombrePokemon.text = "Pokémon: \(result!.name!)"
+                            self.textLabelNombrePokemon.text = "#\(result!.id!) Pokémon: \(result!.name!)"
                             self.textLabelStatHP.text = "  \(self.pokemonStats[0].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.textLabelStatDefensa.text = "  \(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.textLabelStatAtaque.text = "  \(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
-                            self.textLabelStatEspecial.text = "  \(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[0].base_stat!)"
+                            self.textLabelStatDefensa.text = "  \(self.pokemonStats[1].stat!.name!) : \(self.pokemonStats[1].base_stat!)"
+                            self.textLabelStatAtaque.text = "  \(self.pokemonStats[2].stat!.name!) : \(self.pokemonStats[2].base_stat!)"
+                            self.textLabelStatEspecial.text = "  \(self.pokemonStats[3].stat!.name!) : \(self.pokemonStats[3].base_stat!)"
                             self.textLabelNombreElemento.text = "Tipo: \(self.pokemonTypes[0].type!.name!)"
                             
                             

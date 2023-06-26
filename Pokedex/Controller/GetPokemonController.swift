@@ -90,12 +90,12 @@ class GetPokemonController: UIViewController {
             self.pokemonsList.removeAll()
             if let resultSource = result {
                 DispatchQueue.main.async{
-                    var objpoke = Results()
-                    objpoke.name = result?.name
+                    var objPoke = Results()
+                    objPoke.name = result?.name
                     self.id = String(result!.id!)
                     var url1 : String = "https://pokeapi.co/api/v2/pokemon/\(self.id)"
-                    objpoke.url = url1
-                    self.pokemonsList.append(objpoke)
+                    objPoke.url = url1
+                    self.pokemonsList.append(objPoke)
                     self.collectionView.reloadData()
                 }
             }
@@ -210,7 +210,7 @@ extension GetPokemonController: UICollectionViewDelegate,UICollectionViewDataSou
             let formControl = segue.destination as! DetailPokemonProgramaticoController
             formControl.pokemonName = self.pokemonName
             formControl.url = self.url
-            //formControl.id = self.id
+            formControl.id = self.id
         }
     }
 }

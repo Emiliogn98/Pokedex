@@ -280,7 +280,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2m-4C-t7Y">
                                                 <rect key="frame" x="0.0" y="0.0" width="123.66666666666667" height="28"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" image="heart" title="Button"/>
                                                 <connections>
                                                     <action selector="btnTipos2:" destination="3Vr-kw-WY3" eventType="touchUpInside" id="vmU-us-NRb"/>
                                                 </connections>
