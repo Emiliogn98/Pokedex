@@ -18,7 +18,7 @@ class DetailPokemonProgramaticoController: UIViewController {
     let colors: [String: UIColor] = ["normal": UIColor(named: "normal")!, "water": UIColor(named: "water")!,"fire": UIColor(named: "fire")!,
                                      "grass": UIColor(named: "grass")!, "ground": UIColor(named: "ground")!, "rock": UIColor(named: "rock")!, "poison": UIColor(named: "poison")!, "psychic": UIColor(named: "psychic")!, "electric": UIColor(named: "electric")!, "ghost": UIColor(named: "ghost")!, "fighting": UIColor(named: "fighting")!, "bug": UIColor(named: "bug")!, "ice": UIColor(named: "ice")!,"dark": UIColor(named: "dark")!,"steel": UIColor(named: "steel")!, "dragon": UIColor(named: "dragon")!, "flying": UIColor(named: "flying")!]
     
-    
+    let userDefault = UserDefaults.standard
     
     /* elementos*/
     private let ImageViewDefault: UIImageView = {
@@ -206,19 +206,30 @@ class DetailPokemonProgramaticoController: UIViewController {
     }()
     private lazy var btnFavoritos : UIButton = {
         var config = UIButton.Configuration.borderless()
-        //config.baseBackgroundColor = .black
+        config.baseBackgroundColor = .white
       
         //config.title = "Favoritos"
         let btnFavoritos = UIButton(type: .system)
         btnFavoritos.addTarget(self, action: #selector(favoritos), for: .touchUpInside)
         btnFavoritos.isSelected = false
+        
         btnFavoritos.configuration = config
         btnFavoritos.setImage(UIImage.init(systemName: "heart"), for: .normal)
         btnFavoritos.translatesAutoresizingMaskIntoConstraints = false
         btnFavoritos.setTitleColor(UIColor.black, for: .normal)
-     
-       
         return btnFavoritos
+    }()
+    private let textLabelFavorito : UILabel = {
+        let lblFavoritos = UILabel()
+        lblFavoritos.numberOfLines = 0
+        lblFavoritos.textAlignment = .center
+        lblFavoritos.text = "Agregar Favoritos"
+        lblFavoritos.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
+        lblFavoritos.translatesAutoresizingMaskIntoConstraints = false
+        lblFavoritos.backgroundColor = UIColor(named: "fondogris")
+        lblFavoritos.layer.cornerRadius = 15
+        lblFavoritos.layer.masksToBounds = true
+        return lblFavoritos
     }()
     
     /* Elementos */
@@ -227,7 +238,7 @@ class DetailPokemonProgramaticoController: UIViewController {
         /* Agregamos subvistas a la vista principal*/
         view.backgroundColor = .white
         [textLabelNombreElemento,ImageViewDefault,btnTipos,textLabelImagenDefault,textLabelImagenShiny,ImageViewShiny,
-         textLabelNombrePokemon,textLabelStatHP,onboardingImageViewStatHP,textLabelStatDefensa,onboardingImageViewStatDefensa,textLabelStatAtaque,onboardingImageViewStatAtaque,textLabelStatEspecial,onboardingImageViewStatEspecial,btnTipos2,textLabelBusqueda,btnFavoritos].forEach(view.addSubview)
+         textLabelNombrePokemon,textLabelStatHP,onboardingImageViewStatHP,textLabelStatDefensa,onboardingImageViewStatDefensa,textLabelStatAtaque,onboardingImageViewStatAtaque,textLabelStatEspecial,onboardingImageViewStatEspecial,btnTipos2,textLabelBusqueda,btnFavoritos,textLabelFavorito].forEach(view.addSubview)
         view.bringSubviewToFront(btnFavoritos)
         
         /* constraints */
@@ -315,22 +326,30 @@ class DetailPokemonProgramaticoController: UIViewController {
             textLabelBusqueda.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
             textLabelBusqueda.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -170),
             /* Boton de elementos 1*/
-            btnTipos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 40),
+            btnTipos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 10),
             btnTipos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -120),
             btnTipos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 120),
-            btnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -100),
+            btnTipos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -130),
             /* Boton de elementos 2*/
-            btnTipos2.topAnchor.constraint(equalTo: btnTipos.bottomAnchor, constant: 20),
+            btnTipos2.topAnchor.constraint(equalTo: btnTipos.bottomAnchor, constant: 10),
             btnTipos2.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -120),
             btnTipos2.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 120),
-            btnTipos2.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -50),
+            btnTipos2.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor,constant: -90),
             /* boton de Favoritos*/
            // btnFavoritos.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 12),
-            btnFavoritos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 12),
+           // btnFavoritos.topAnchor.constraint(equalTo: textLabelBusqueda.bottomAnchor, constant: 12),
+            btnFavoritos.topAnchor.constraint(equalTo: textLabelFavorito.bottomAnchor, constant: 10),
             //btnFavoritos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -710),
-            btnFavoritos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -70),
-            btnFavoritos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
-            btnFavoritos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 250)
+            btnFavoritos.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -30),
+           // btnFavoritos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
+            btnFavoritos.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -120),
+            //btnFavoritos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 250),
+            btnFavoritos.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 120),
+            /* label de Favorito*/
+            textLabelFavorito.topAnchor.constraint(equalTo: btnTipos2.bottomAnchor, constant: 10),
+            textLabelFavorito.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -20),
+            textLabelFavorito.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 20),
+            textLabelFavorito.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -50),
             
             
             
@@ -341,6 +360,18 @@ class DetailPokemonProgramaticoController: UIViewController {
         
         
         updateUI()
+        
+
+        let age = userDefault.integer(forKey: "Age")
+        let name = userDefault.string(forKey: "Name")
+      //  let name = UserDefaults.standard.string(forKey: "Name")
+        let savedArray = userDefault.array(forKey: "SavedDict") as? [String] ?? [String]()
+        //print(UserDefaults.standard.array(forKey: "SavedDict"))
+        //print(savedArray)
+        
+        
+        
+            
         
     }
     
@@ -449,6 +480,7 @@ class DetailPokemonProgramaticoController: UIViewController {
                                     self.textLabelImagenDefault.backgroundColor = color
                                     self.textLabelImagenShiny.backgroundColor = color
                                     self.textLabelBusqueda.backgroundColor = color
+                                    self.textLabelFavorito.backgroundColor = color
                                     self.btnTipos.tintColor = color
                                     self.btnTipos.setTitle("\(self.pokemonTypes[0].type!.name!)", for: .normal)
                            

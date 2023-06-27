@@ -11,6 +11,7 @@ class GetPokemonController: UIViewController {
     var pokemonsList : [Results] = []
     var pokemonInfo : [Pokemon] = []
     var pokemonName : String = ""
+    var pokemonName2 : String = "Pokemon"
     var text : String = ""
     var url : String = ""
     var paginacion : String = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20"
@@ -21,6 +22,7 @@ class GetPokemonController: UIViewController {
     var color2 = UIColor.white.cgColor
     var elemento : String = ""
     var result = Tipos()
+    let userDefault = UserDefaults.standard
     //Outlet
     
     @IBOutlet weak var btnBuscarOutlet: UIButton!
@@ -34,9 +36,20 @@ class GetPokemonController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         updateUI()
+   
+        userDefault.removeObject(forKey: "Name")
+        userDefault.removeObject(forKey: "SavedDict")
+        //userDefault.set(25, forKey: "Age")
+        userDefault.set(self.pokemonName2, forKey: "Name")
+        
+        let dict = ["Name": "\(self.pokemonName2)"]
+        userDefault.set(dict, forKey: "SavedDict")
+      
+
     }
     //Action
     func GetElement() {
+        
         if self.elemento != ""{
             PokemonViewModel.GetByElemento(elemento: self.elemento) { result, error in
                 self.pokemonsList.removeAll()
