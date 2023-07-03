@@ -6,9 +6,25 @@
 //
 
 import UIKit
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    //referencia
+     lazy var persistentContainer: NSPersistentContainer = {
+            let container = NSPersistentContainer(name: "EGarciaPokedex")
+            container.loadPersistentStores { description, error in
+                if let error = error {
+                    fatalError("Unable to load persistent stores: \(error)")
+                    //Propio error
+                }
+            }
+            return container
+        }()
+        lazy var context: NSManagedObjectContext = {
+               return persistentContainer.viewContext
+           }()
+
 
 
 
