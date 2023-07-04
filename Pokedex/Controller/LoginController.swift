@@ -184,6 +184,11 @@ class LoginController: UIViewController {
     @objc func btnRegistrarAction () {
                 var result = LoginViewModel.Add(self.txtUserName.text!, self.txtPassword.text!)
                 if result.Correct == true {
+                    let alert = UIAlertController(title: "Mensaje", message: "Usuario Agregado", preferredStyle: .alert)
+                                  let action = UIAlertAction(title: "Aceptar", style: .default)
+                                  alert.addAction(action)
+                                  
+                                      self.present(alert, animated: true)
                     print("se agrego correctamente")
                 }else {
                     print("ocurrio un error al agregar")
