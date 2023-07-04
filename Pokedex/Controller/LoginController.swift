@@ -91,6 +91,20 @@ class LoginController: UIViewController {
         btnLogin.tintColor = UIColor(named: "grisbotonlogin")
            return btnLogin
        }()
+    
+    private lazy var btnRegistrar : UIButton = {
+        var config = UIButton.Configuration.borderedProminent()
+        config.title = "Registrar"
+        let btnLogin = UIButton(type: .system)
+        btnLogin.addTarget(self, action: #selector(btnRegistrarAction), for: .touchUpInside)
+        btnLogin.configuration = config
+        btnLogin.translatesAutoresizingMaskIntoConstraints = false
+        btnLogin.setTitleColor(UIColor.white, for: .normal)
+        btnLogin.layer.cornerRadius = 0
+        btnLogin.layer.masksToBounds = true
+        btnLogin.tintColor = UIColor(named: "grisbotonlogin")
+           return btnLogin
+       }()
     private let lblValidacion : UILabel = {
           let lblValidacionLogin = UILabel()
         lblValidacionLogin.numberOfLines = 0
@@ -105,6 +119,7 @@ class LoginController: UIViewController {
           return lblValidacionLogin
       }()
     
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +131,7 @@ class LoginController: UIViewController {
    
 
         
-        [ImageView,txtUserName,btnLogin,txtPassword,lblValidacion,ImageViewPokemon,btnFaceId].forEach(view.addSubview)
+        [ImageView,txtUserName,btnLogin,txtPassword,lblValidacion,ImageViewPokemon,btnFaceId,btnRegistrar].forEach(view.addSubview)
         view.bringSubviewToFront(ImageView)
        
         /* contraints*/
@@ -149,9 +164,14 @@ class LoginController: UIViewController {
             ImageViewPokemon.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 30),
             
             btnFaceId.topAnchor.constraint(equalTo: lblValidacion.bottomAnchor, constant: 20),
-            btnFaceId.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -140),
+            btnFaceId.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -120),
             btnFaceId.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -50),
             btnFaceId.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 47),
+            
+            btnRegistrar.topAnchor.constraint(equalTo: btnFaceId.bottomAnchor, constant: 20),
+            btnRegistrar.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -70),
+            btnRegistrar.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: -50),
+            btnRegistrar.leftAnchor.constraint(equalTo: view.layoutMarginsGuide.leftAnchor, constant: 47),
       
         
 //
@@ -159,6 +179,16 @@ class LoginController: UIViewController {
     
        
 
+        
+    }
+    @objc func btnRegistrarAction () {
+                var result = LoginViewModel.Add(self.txtUserName.text!, self.txtPassword.text!)
+                if result.Correct == true {
+                    print("se agrego correctamente")
+                }else {
+                    print("ocurrio un error al agregar")
+                }
+        
         
     }
     
@@ -317,22 +347,6 @@ class LoginController: UIViewController {
         
         
         
-     
-//        var result = LoginViewModel.Add(self.txtUserName.text!, self.txtPassword.text!)
-//        if result.Correct == true {
-//            print("se agrego correctamente")
-//        }else {
-//            print("ocurrio un error al agregar")
-//        }
-        
-//        var result = LoginViewModel.GetByUsername(txtUserName.text!)
-//        if result.Correct == true {
-//
-//
-//        } else {
-//            print("no existe")
-//        }
-//
 
 
         

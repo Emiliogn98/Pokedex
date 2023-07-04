@@ -1113,102 +1113,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ACFEC4B4-003C-421F-8DD3-7807EACEA389"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pokedex/Controller/LoginController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "btnLoginAction()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "ACFEC4B4-003C-421F-8DD3-7807EACEA389 - 90641594b574c739"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pokedex.LoginController.btnLoginAction() -&gt; ()"
-                  moduleName = "Pokedex"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookmba4/Documents/EGarciaNavarreteIOSMarzo/Pokedex/Pokedex/Controller/LoginController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "139"
-                  endingLineNumber = "139"
-                  offsetFromSymbolStart = "12">
-               </Location>
-               <Location
-                  uuid = "ACFEC4B4-003C-421F-8DD3-7807EACEA389 - 90641594b574c6e7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pokedex.LoginController.btnLoginAction() -&gt; ()"
-                  moduleName = "Pokedex"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookmba4/Documents/EGarciaNavarreteIOSMarzo/Pokedex/Pokedex/Controller/LoginController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1C7676BD-FFFF-4CA4-8DA3-CECDADC91044"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pokedex/Controller/LoginController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
-            landmarkName = "btnLoginAction()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1C7676BD-FFFF-4CA4-8DA3-CECDADC91044 - 90641594b574c79c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pokedex.LoginController.btnLoginAction() -&gt; ()"
-                  moduleName = "Pokedex"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookmba4/Documents/EGarciaNavarreteIOSMarzo/Pokedex/Pokedex/Controller/LoginController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "984">
-               </Location>
-               <Location
-                  uuid = "1C7676BD-FFFF-4CA4-8DA3-CECDADC91044 - 90641594b574c718"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pokedex.LoginController.btnLoginAction() -&gt; ()"
-                  moduleName = "Pokedex"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookmba4/Documents/EGarciaNavarreteIOSMarzo/Pokedex/Pokedex/Controller/LoginController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "138"
-                  endingLineNumber = "138"
-                  offsetFromSymbolStart = "80">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "E1C5450E-8299-47B6-B877-B52B3A387C81"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1250,54 +1154,6 @@
                   startingLineNumber = "54"
                   endingLineNumber = "54"
                   offsetFromSymbolStart = "944">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "50BC0B33-CF71-45A5-BB0B-2278747CA2BA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Pokedex/Controller/LoginController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "btnLoginAction()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "50BC0B33-CF71-45A5-BB0B-2278747CA2BA - 90641594b574c3fe"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pokedex.LoginController.btnLoginAction() -&gt; ()"
-                  moduleName = "Pokedex"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookmba4/Documents/EGarciaNavarreteIOSMarzo/Pokedex/Pokedex/Controller/LoginController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
-                  offsetFromSymbolStart = "732">
-               </Location>
-               <Location
-                  uuid = "50BC0B33-CF71-45A5-BB0B-2278747CA2BA - 90641594b574c051"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pokedex.LoginController.btnLoginAction() -&gt; ()"
-                  moduleName = "Pokedex"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookmba4/Documents/EGarciaNavarreteIOSMarzo/Pokedex/Pokedex/Controller/LoginController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "179"
-                  endingLineNumber = "179"
-                  offsetFromSymbolStart = "1084">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1519,8 +1375,8 @@
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
             landmarkName = "btnLoginAction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1551,8 +1407,8 @@
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "btnLoginAction()"
             landmarkType = "7">
             <Locations>
@@ -1614,8 +1470,8 @@
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "273"
-            endingLineNumber = "273"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "btnLoginAction()"
             landmarkType = "7">
             <Locations>
@@ -1677,8 +1533,8 @@
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "btnLoginAction()"
             landmarkType = "7">
             <Locations>
@@ -1725,8 +1581,8 @@
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "btnLoginAction()"
             landmarkType = "7">
             <Locations>
@@ -1803,8 +1659,8 @@
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "btnLoginAction()"
             landmarkType = "7">
             <Locations>
@@ -1851,8 +1707,8 @@
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "btnLoginAction()"
             landmarkType = "7">
             <Locations>
@@ -1899,8 +1755,8 @@
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
             landmarkName = "btnLoginAction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1909,48 +1765,16 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7DE84A62-01B6-44A4-92DF-6C66762BEDEF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pokedex/Controller/LoginController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
             landmarkName = "btnFaceIDAction()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7DE84A62-01B6-44A4-92DF-6C66762BEDEF - 90641594b574ca4f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Pokedex.LoginController.btnLoginAction() -&gt; ()"
-                  moduleName = "Pokedex"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookmba4/Documents/EGarciaNavarreteIOSMarzo/Pokedex/Pokedex/Controller/LoginController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "225"
-                  endingLineNumber = "225"
-                  offsetFromSymbolStart = "1400">
-               </Location>
-               <Location
-                  uuid = "7DE84A62-01B6-44A4-92DF-6C66762BEDEF - 4a332da0b7adecc6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Pokedex.LoginController.btnFaceIDAction() -&gt; ()"
-                  moduleName = "Pokedex"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/macbookmba4/Documents/EGarciaNavarreteIOSMarzo/Pokedex/Pokedex/Controller/LoginController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "224"
-                  endingLineNumber = "224"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
