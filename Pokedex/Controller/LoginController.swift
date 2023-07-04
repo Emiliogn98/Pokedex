@@ -111,6 +111,8 @@ class LoginController: UIViewController {
         
         //degradado()
         setGradientBackground()
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+             view.addGestureRecognizer(tapGesture)
    
 
         
